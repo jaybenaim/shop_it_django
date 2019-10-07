@@ -29,6 +29,7 @@
       "last 1 safari version"
     ]
   }, 
-    "proxy": "http://localhost:8000"
+    "proxy": "http://localhost:8000", 
+    "homepage": "https://shop-it-quick.herokuapp.com/"
     
 }
