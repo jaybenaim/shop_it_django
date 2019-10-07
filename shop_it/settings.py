@@ -26,7 +26,7 @@ SECRET_KEY = '2k2io3u5+q8og6+r@sy-31)1@nxic9av!hp$03)(d2a=!91tu6'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0', '127.0.0.1', 'localhost', 'ec2-174-129-194-188.compute-1.amazonaws.com'
+    '0.0.0.0', '127.0.0.1', 'localhost', 'ec2-174-129-194-188.compute-1.amazonaws.com', 'shop-it-quick.herokuapp.com'
 ]
 
 
