@@ -27,7 +27,7 @@ class Register extends Component {
 
   handleLogin = (e, data) => {
     e.preventDefault();
-    Axios.post("http://localhost:8000/authenticate/", data, {
+    Axios.post("https://shop-it-quick.herokuapp.com/authenticate/", data, {
       headers: {
         "Content-Type": "application/json"
       }
