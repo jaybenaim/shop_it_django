@@ -85,9 +85,12 @@ WSGI_APPLICATION = 'shop_it.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'shop_it_django_development',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'NAME': 'dcutkl2m25p4si',
+        'HOST': 'ec2-174-129-194-188.compute-1.amazonaws.com',
+        'PORT': '5432', 
+        'USER': 'tufzqqnvcxcemo', 
+        'PASSWORD': 'f1e5e6bdad20f4448bd346bc0fd65ff7d31afdbe8dac5395ff7d5f334cb25879'
+
     }
 }
 
