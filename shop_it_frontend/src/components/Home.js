@@ -5,7 +5,6 @@ class Home extends React.Component {
     state = {  }
     render() { 
         return ( <> 
-        <Navbar /> 
         <h1>Welcome To Shop It</h1>
         </> );
     }
