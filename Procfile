@@ -1,3 +1,3 @@
 release: python manage.py migrate
 web: gunicorn shop_it.wsgi --log-file -
-web: npm start
+web: npm run build 
