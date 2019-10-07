@@ -39,11 +39,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'shop_it',
     'shop_it_frontend',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,7 +136,9 @@ STATIC_URL = '/static/'
 
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend')
 
-
+STATICFILES_DIRS = [
+    os.path.join(REACT_APP_DIR, 'build', 'static'),
+]
 
 # # # https://github.com/ottoyiu/django-cors-headers
 # # # Whitelist the create-react-app development server
