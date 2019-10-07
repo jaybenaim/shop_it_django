@@ -135,7 +135,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
+STATIC_ROOT = "/app/shop_it_frontend/build/static"
 
 ######## 
 
