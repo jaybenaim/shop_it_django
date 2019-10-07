@@ -38,7 +38,5 @@
   },
   "proxy": "https://shop-it-quick.herokuapp.com/",
   "homepage": ".",
-  "devDependencies": {
-    "webpack-cli": "^3.3.9"
-  }
+  "devDependencies": {}
 }
