@@ -138,13 +138,13 @@ STATIC_URL = '/static/'
 
 ######## 
 
-# REACT_APP_DIR = os.path.join(BASE_DIR, 'shop_it_frontend')
+REACT_APP_DIR = os.path.join(BASE_DIR, 'shop_it_frontend')
 
 # STATICFILES_DIRS = [
 #     os.path.join(REACT_APP_DIR, 'build', 'static'),
 # ]
 STATICFILES_DIRS = (
-    os.path.join(os.path.join(BASE_DIR, 'shop_it_frontend'), 'build', 'static')
+    os.path.join(os.path.join(BASE_DIR, 'shop_it_frontend'), 'build', 'static'),
 )
 # # # https://github.com/ottoyiu/django-cors-headers
 # # # Whitelist the create-react-app development server
