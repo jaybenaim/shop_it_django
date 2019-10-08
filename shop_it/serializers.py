@@ -97,17 +97,26 @@ class ShoppingListSerializer(serializers.ModelSerializer):
         model = ShoppingList 
         fields = '__all__' 
 
+    # product = ProductSerializer() 
+
     def create(self, validated_data): 
-        product = validated_data['product']
-        for i in product: 
-            print(i)
+        # product_data = validated_data.pop('product')
+        # product_serializer = ProductSerializer(data=product_data)
+        # product_serializer.is_valid(raise_exception=True)
+        # validated_data['product'] = product_serializer.save()
+        # productName = ''
+        # for (index, product) in enumerate(product_serializer):
+        #     if index == 1: 
+        #         productName = product.value 
+        # # print(product_serializer)
+        # print(type(productName))
 
-        print(i)
+        shopping_list = ShoppingList.objects.create(**validated_data)
+        # shopping_list.product.set(product__name=productName)
 
-        shopping_list = ShoppingList.objects.create(**validated_data) 
-        shopping_list.product.set(name=i)
-        
+
         return shopping_list
+
 
 
     def update(self, shoppingList, validated_data): 

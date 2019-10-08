@@ -1,55 +1,24 @@
 import React, { Component } from "react";
-import Api from "../apis/api";
-import axios from "axios";
-import ShoppingListForm from "./ShoppingListForm";
-
 class ShoppingList extends Component {
   state = {
     shoppingList: [],
-    showShoppingListForm: false
+    href: `shopping_list/${this.props.shoppingList[0].id}`
   };
 
-  getUserShoppingList = () => {
-    Api.get("shopping_list/").then(res => {
-      console.log(res.data);
-      const lists = res.data;
-      const id = localStorage.id;
-      let userShoppingList = lists.filter(list => {
-        console.log(list.user + id);
-        if (list.user === Number(id)) {
-          return list;
-        }
-        return;
-      });
-      this.setState({
-        shoppingList: userShoppingList
-      });
-    });
-  };
-  handleShowShoppingList = () => {
-    const { showShoppingListForm } = this.state;
-    this.setState({ showShoppingListForm: !showShoppingListForm });
-  };
-  componentDidMount() {
-    this.getUserShoppingList();
+  componentDidUpdate() {
+    const { shoppingList } = this.props;
+    console.log(shoppingList[0].budget);
   }
+
   render() {
-    const { showShoppingListForm } = this.state;
+    const { href } = this.state;
+    const { shoppingList } = this.props;
+    const { id, budget, user, product } = shoppingList[0];
 
     return (
-      <>
-        <div>
-          {showShoppingListForm ? (
-            <ShoppingListForm
-              handleShowShoppingList={this.handleShowShoppingList}
-            />
-          ) : (
-            <button onClick={this.handleShowShoppingList}>
-              Click to add a shopping list
-            </button>
-          )}
-        </div>
-      </>
+      <div>
+        <a href={href}>Shopping List {id} </a>
+      </div>
     );
   }
 }
