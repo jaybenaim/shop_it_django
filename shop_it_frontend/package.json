@@ -36,6 +36,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://shop-it-quick.herokuapp.com/",
+  "proxy": "https://localhost:3000/",
   "homepage": "."
 }

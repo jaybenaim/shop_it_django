@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Api from '../apis/api'
+import axios from 'axios' 
 
 class ShoppingList extends Component {
     state = { 
@@ -8,8 +9,10 @@ class ShoppingList extends Component {
 
     getUserShoppingList = () => { 
         
-        Api.get("shopping_list/").then(res => { 
-            this.setState({ shoppingList: [...this.state.shoppingList, res.data ] });
+        Api.get("stores/").then(res => {
+          this.setState({
+            shoppingList: [...this.state.shoppingList, res.data]
+          });
         });
     }
     componentDidMount() { 
