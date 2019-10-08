@@ -94,37 +94,21 @@ class ProductSerializer(serializers.ModelSerializer):
 class ShoppingListSerializer(serializers.ModelSerializer): 
 
     class Meta: 
-        model = ShoppingList 
-        fields = '__all__' 
-
-    # product = ProductSerializer() 
+        model = ShoppingList
+        fields = '__all__'
 
     def create(self, validated_data): 
-        # product_data = validated_data.pop('product')
-        # product_serializer = ProductSerializer(data=product_data)
-        # product_serializer.is_valid(raise_exception=True)
-        # validated_data['product'] = product_serializer.save()
-        # productName = ''
-        # for (index, product) in enumerate(product_serializer):
-        #     if index == 1: 
-        #         productName = product.value 
-        # # print(product_serializer)
-        # print(type(productName))
+        return ShoppingList.objects.create(**validated_data)
 
-        shopping_list = ShoppingList.objects.create(**validated_data)
-        # shopping_list.product.set(product__name=productName)
+    def update(self, instance, validated_data): 
+        instance.user = validated_data.get("user", instance.user)
+        instance.budget = validated_data.get("budget", instance.budget)
+        instance.products.set(validated_data.get("products", instance.products))
 
+        instance.save() 
 
-        return shopping_list
+        return instance 
 
+        
 
-
-    def update(self, shoppingList, validated_data): 
-        shoppingList.user = validated_data("user", shoppingList.user) 
-        shoppingList.budget = validated_data("budget", shoppingList.budget) 
-        shoppingList.product.set(validated_data.get("product", shoppingList.product))
-
-
-        shopping_list.save()
-
-        return shopping_list
+    
