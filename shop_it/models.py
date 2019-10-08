@@ -17,22 +17,22 @@ from rest_framework.authtoken.models import Token
 class Store(models.Model): 
     name = models.CharField(max_length=225)
     address = models.CharField(max_length=225)
-    aisles = models.ManyToManyField('Aisle', related_name='stores')
+    aisles = models.ManyToManyField('Aisle', related_name='stores', blank=True)
+    
     def __str__(self): 
         return self.name
 
 class Aisle(models.Model): 
     number = models.IntegerField()
-    # category = models.ForeignKey('Category', related_name="aisles", blank=True, null=True, on_delete=models.CASCADE)
-    
+    categories = models.ManyToManyField('Category', related_name='aisles', blank=True)
+
     def __str__(self):
         return self.number
 
 class Category(models.Model): 
     name = models.CharField(max_length=255)
-    # aisle = models.ForeignKey(Aisle, related_name='stores', blank=True, null=True, on_delete=models.CASCADE)
-    # product = models.ForeignKey('Product', related_name="categories", blank=True, null=True, on_delete=models.CASCADE)
-    
+    products = models.ManyToManyField('Product', related_name='categories', blank=True)
+
     def __str__(self): 
         return self.name 
 
@@ -50,7 +50,8 @@ class Product(models.Model):
 class ShoppingList(models.Model): 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     budget = models.FloatField(null=False) 
-    
+    product = models.ManyToManyField(Product, related_name='products', blank=True)
+
     def __str__(self): 
         return self.user
 

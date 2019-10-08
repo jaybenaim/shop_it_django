@@ -20,30 +20,13 @@ class GroupSerializer(serializers.ModelSerializer):
         model = Group
         feilds = '__all__'
 
-class AisleSerializer(serializers.ModelSerializer): 
-    class Meta: 
-        model = Aisle 
-        fields = '__all__' 
-
-    def create(self, validated_data): 
-        return Aisle.objects.create(**validated_data) 
-
-    def update(self, aisle, validated_data): 
-        aisle.number = validated_data.get("number", aisle.number) 
-        aisle.category = validated_data.get("category_id", aisle.category) 
-
-        aisle.save() 
-
-        return aisle 
-
 class StoreSerializer(serializers.ModelSerializer): 
 
     class Meta: 
         model = Store 
-        fields = "__all__"
+        fields = '__all__'
 
-    def create(self, validated_data): 
-        
+    def create(self, validated_data):
         return Store.objects.create(**validated_data) 
 
     def update(self, store, validated_data): 
@@ -56,6 +39,23 @@ class StoreSerializer(serializers.ModelSerializer):
         return store 
 
 
+class AisleSerializer(serializers.ModelSerializer): 
+
+    class Meta: 
+        model = Aisle 
+        fields = '__all__' 
+
+    def create(self, validated_data): 
+        return Aisle.objects.create(**validated_data) 
+
+    def update(self, aisle, validated_data): 
+        aisle.number = validated_data.get("number", aisle.number) 
+        aisle.categories.set(validated_data.get("categories", aisle.categories))
+
+        aisle.save() 
+
+        return aisle 
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta: 
         model = Category 
@@ -65,8 +65,8 @@ class CategorySerializer(serializers.ModelSerializer):
         return Category.objects.create(**validated_data) 
 
     def update(self, category, validated_data): 
-        category.name = validated_data("name", category.name) 
-        category.product = validated_data("product_id", category.product)
+        category.name = validated_data.get("name", category.name) 
+        category.products.set(validated_data.get("products", category.products))
         
         category.save() 
 
@@ -102,8 +102,8 @@ class ShoppingListSerializer(serializers.ModelSerializer):
 
     def update(self, shopping_list, validated_data): 
         shopping_list.user = validated_data("user", shopping_list.user) 
-        shopping_list.products = validated_data("product", shopping_list.products) 
         shopping_list.budget = validated_data("budget", shopping_list.budget) 
+        shopping_list.product.set(validated_data.get("product", shopping_list.product))
 
         shopping_list.save()
 
