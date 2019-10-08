@@ -75,7 +75,7 @@ class Register extends Component {
   );
   loggedInNav = (
     <button
-      className="btn btn-warning logout-button"
+      className="btn btn-primary logout-button"
       onClick={this.handleLogout}
     >
       Logout
@@ -98,11 +98,12 @@ class Register extends Component {
       <div className="container">
         {this.state.loggedIn ? this.loggedInNav : this.loggedOutNav}
         {form}
-        <h3>
+        <div className="login-welcome">
           {this.state.loggedIn
-            ? `Hello, ${localStorage.username}`
+            ? `Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
+                localStorage.username.slice(1)}`
             : "Please Log In"}
-        </h3>
+        </div>
       </div>
     );
   }

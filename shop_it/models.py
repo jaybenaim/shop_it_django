@@ -17,21 +17,21 @@ from rest_framework.authtoken.models import Token
 class Store(models.Model): 
     name = models.CharField(max_length=225)
     address = models.CharField(max_length=225)
-    aisle_id = models.ManyToManyField('Aisle', related_name='store_aisles', blank=True)
-
+    aisles = models.ManyToManyField('Aisle', related_name='stores')
     def __str__(self): 
         return self.name
 
 class Aisle(models.Model): 
     number = models.IntegerField()
-    category_id = models.ManyToManyField('Category', related_name="categories", blank=True)
+    # category = models.ForeignKey('Category', related_name="aisles", blank=True, null=True, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.number
 
 class Category(models.Model): 
     name = models.CharField(max_length=255)
-    product_id = models.ManyToManyField('Product', related_name="products", blank=True)
+    # aisle = models.ForeignKey(Aisle, related_name='stores', blank=True, null=True, on_delete=models.CASCADE)
+    # product = models.ForeignKey('Product', related_name="categories", blank=True, null=True, on_delete=models.CASCADE)
     
     def __str__(self): 
         return self.name 
@@ -42,15 +42,15 @@ class Product(models.Model):
     price = models.FloatField()
     description = models.TextField(null=False)  
     ingredients = models.TextField(null=False)
-    # needs to have type to help categorize? 
+    # shopping_list = models.ForeignKey('ShoppingList', related_name="products", on_delete=models.CASCADE, blank=False, null=True)
+ 
     def __str__(self): 
         return self.name
 
 class ShoppingList(models.Model): 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product, related_name="shopping_list_products", blank=True) 
     budget = models.FloatField(null=False) 
-
+    
     def __str__(self): 
         return self.user
 
@@ -60,3 +60,7 @@ class ShoppingList(models.Model):
 def create_auth_token(sender, instance=None, created=False, **kwargs):
     if created:
         Token.objects.create(user=instance)
+
+
+
+    

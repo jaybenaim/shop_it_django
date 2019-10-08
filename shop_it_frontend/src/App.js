@@ -2,25 +2,35 @@ import React from 'react';
 import './App.css';
 import Home from './components/Home'
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Test from './components/test'
-import Navbar from './components/NavBar'
+import ShoppingList from './components/ShoppingList.js'
+
 function App() {
   return (
+    <div className="App container">
     <Router>
-      <div className="App container-fluid">
         <div>
-          <Navbar />
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li> 
+              <Link to="/shoppingList">Create a shopping list</Link>
+            </li>
+          </ul>
         </div>
         <Switch>
+        
+
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/test">
-            <Test />
+          <Route path="/shoppingList">
+            <ShoppingList /> 
           </Route>
+        
         </Switch>
-      </div>
     </Router>
+      </div>
   );
 }
 

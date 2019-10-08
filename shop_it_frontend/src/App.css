@@ -1,0 +1,14 @@
+/* NAVBAR */ 
+
+li { 
+    list-style: none; 
+}
+
+.logout-button, .login-button, .logout-button { 
+    height: 40px; 
+    width: 80px; 
+
+}
+.login-welcome { 
+    margin-left: 10px; 
+}

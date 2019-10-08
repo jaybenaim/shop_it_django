@@ -7,9 +7,6 @@ class Navbar extends React.Component {
         return (
           <nav className="navbar navbar-default">
             <ul>
-              <a href="/">
-                <li>Home</li>
-              </a>
                 <li><Register/></li>
             </ul>
           </nav>

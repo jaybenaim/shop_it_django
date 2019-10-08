@@ -4,9 +4,14 @@ import Navbar from './NavBar'
 class Home extends React.Component {
     state = {  }
     render() { 
-        return ( <> 
-        <h1>Welcome To Shop It</h1>
-        </> );
+        return (
+          <>
+            <div className="container">
+              <Navbar />
+              <h1>Welcome To Shop It</h1>
+            </div>
+          </>
+        );
     }
 }
  
