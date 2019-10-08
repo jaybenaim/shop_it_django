@@ -5,4 +5,5 @@ import axios from "axios";
 
 export default axios.create({
   baseURL: "https://shop-it-quick.herokuapp.com/api/"
+  // baseURL: "http://localhost:8000/api/"
 });

@@ -98,12 +98,23 @@ class ShoppingListSerializer(serializers.ModelSerializer):
         fields = '__all__' 
 
     def create(self, validated_data): 
-        return ShoppingList.objects.create(**validated_data) 
+        product = validated_data['product']
+        for i in product: 
+            print(i)
 
-    def update(self, shopping_list, validated_data): 
-        shopping_list.user = validated_data("user", shopping_list.user) 
-        shopping_list.budget = validated_data("budget", shopping_list.budget) 
-        shopping_list.product.set(validated_data.get("product", shopping_list.product))
+        print(i)
+
+        shopping_list = ShoppingList.objects.create(**validated_data) 
+        shopping_list.product.set(name=i)
+        
+        return shopping_list
+
+
+    def update(self, shoppingList, validated_data): 
+        shoppingList.user = validated_data("user", shoppingList.user) 
+        shoppingList.budget = validated_data("budget", shoppingList.budget) 
+        shoppingList.product.set(validated_data.get("product", shoppingList.product))
+
 
         shopping_list.save()
 
