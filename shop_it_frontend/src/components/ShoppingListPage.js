@@ -4,12 +4,17 @@ import axios from "axios";
 import ShoppingListForm from "./ShoppingListForm";
 import { Container, Button, Row, Col } from "react-bootstrap";
 import ShoppingList from "./ShoppingList";
-
+import ShoppingListProductShow from "./ShoppingListProductShow";
+import ShoppingListShow from "./ShoppingListShow";
 class ShoppingListPage extends Component {
   state = {
-    shoppingList: [],
+    shoppingLists: null,
     showShoppingListForm: false,
-    loading: true
+    showShoppingListProduct: false,
+    handleShowShoppingList: false,
+    currentShoppingList: null,
+    currentProducts: [],
+    isLoaded: false
   };
 
   getUserShoppingList = () => {
@@ -23,20 +28,41 @@ class ShoppingListPage extends Component {
         return;
       });
       this.setState({
-        shoppingList: userShoppingList,
-        loading: false
+        shoppingLists: userShoppingList,
+        isLoaded: !this.state.loaded
       });
     });
   };
+
   handleShowShoppingList = () => {
     const { showShoppingListForm } = this.state;
     this.setState({ showShoppingListForm: !showShoppingListForm });
   };
+  handleShowShoppingList = (shoppingList, products) => {
+    const { showShoppingList } = this.state;
+
+    this.setState({
+      showShoppingList: !showShoppingList,
+      currentShoppingList: shoppingList,
+      currentProducts: products
+    });
+
+    console.log(shoppingList);
+  };
   componentDidMount() {
     this.getUserShoppingList();
   }
+
   render() {
-    const { showShoppingListForm, shoppingList, loading } = this.state;
+    const {
+      showShoppingListForm,
+      showShoppingListProduct,
+      showShoppingList,
+      shoppingLists,
+      currentShoppingList,
+      currentProducts,
+      isLoaded
+    } = this.state;
 
     return (
       <>
@@ -51,7 +77,14 @@ class ShoppingListPage extends Component {
                 <h2>Your Shopping Lists</h2>
                 <Col xs={12} md={12} lg={6}></Col>
                 <Col xs={12} md={12} lg={6}>
-                  {!loading && <ShoppingList shoppingList={shoppingList} />}
+                  {isLoaded && (
+                    <ShoppingList
+                      shoppingList={shoppingLists}
+                      currentShoppingList={currentShoppingList}
+                      handleShowShoppingList={this.handleShowShoppingList}
+                      products={currentProducts}
+                    />
+                  )}
                 </Col>
                 <Col xs={12} md={12} lg={6}></Col>
               </Row>
@@ -59,6 +92,14 @@ class ShoppingListPage extends Component {
               <Button onClick={this.handleShowShoppingList}>
                 Click to add a shopping list
               </Button>
+
+              {showShoppingListProduct && <ShoppingListProductShow />}
+              {showShoppingList && (
+                <ShoppingListShow
+                  currentShoppingList={currentShoppingList}
+                  handleShowShoppingList={this.handleShowShoppingList}
+                />
+              )}
             </Container>
           )}
         </div>
