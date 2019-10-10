@@ -25,3 +25,11 @@ li {
 .add-item-button:hover {
   cursor: pointer;
 }
+
+/* ADD PRODUCT FROM */
+
+.form-description,
+.form-ingredients {
+  margin-left: 20px;
+  margin-right: 20px;
+}
