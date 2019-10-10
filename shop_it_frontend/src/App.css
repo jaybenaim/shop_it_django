@@ -16,3 +16,12 @@ li {
 .shopping-list-products {
   list-style: circle;
 }
+
+/* SHOPPING LIST - PRODUCTS */
+
+.add-item-button {
+  float: right;
+}
+.add-item-button:hover {
+  cursor: pointer;
+}

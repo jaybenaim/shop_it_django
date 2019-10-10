@@ -8,8 +8,8 @@ class ShoppingListProductShow extends Component {
       <div>
         <h2>{name.toUpperCase()}</h2>
         <p>$ {price}</p>
-        <p>{description}</p>
-        <p>{ingredients}</p>
+        <p>Description: {description}</p>
+        <p>Ingredients: {ingredients}</p>
       </div>
     );
   }
