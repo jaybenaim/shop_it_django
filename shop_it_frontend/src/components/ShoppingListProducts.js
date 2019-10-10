@@ -1,30 +1,46 @@
 import React, { Component } from "react";
 import Api from "../apis/api";
+import ShoppingListProductsShow from "./ShoppingListProductShow";
 
 class ShoppingListProducts extends Component {
   state = {
-    product: []
+    currentProducts: [],
+    isLoaded: false
   };
   getProductFromId = () => {
-    const { productId } = this.props;
-    Api.get(`products/${productId}/`).then(res => {
-      this.setState({ product: res.data });
+    const { products } = this.props;
+    const { currentProducts, isLoaded } = this.state;
+    products.forEach(productId => {
+      Api.get(`products/${productId}/`).then(res => {
+        this.setState({
+          currentProducts: [...currentProducts, res.data]
+        });
+      });
     });
   };
   handleViewProduct = () => {
-    const { product } = this.state.product;
-    return product;
+    const { currentProducts } = this.state;
+    return currentProducts;
   };
 
   componentDidMount() {
     this.getProductFromId();
   }
+
   render() {
-    const { name } = this.state.product;
+    const { currentProducts, isLoaded } = this.state;
+
+    let productElements = currentProducts.map(
+      (product, i) =>
+        !isLoaded && (
+          <ShoppingListProductsShow key={i} currentProducts={product} />
+        )
+    );
+
     return (
-      <li className="shopping-list-products">
-        <p onClick={this.handleViewProduct}>{name}</p>
-      </li>
+      <div className="shopping-list-products">
+        <div onClick={this.handleViewProduct}>{productElements}</div>
+      </div>
     );
   }
 }

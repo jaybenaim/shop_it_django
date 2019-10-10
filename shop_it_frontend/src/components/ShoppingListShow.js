@@ -19,14 +19,22 @@ class ShoppingListShow extends Component {
           <tr>
             <th>Shopping List</th>
             <th>Budget</th>
-            <th>Items</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Shopping List {id}</td>
             <td>{budget}</td>
-            <td></td>
+          </tr>
+          <tr>
+            <th colSpan="2" className="items-label">
+              Items
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <ShoppingListProducts products={products} />
+            </td>
           </tr>
         </tbody>
       </Table>

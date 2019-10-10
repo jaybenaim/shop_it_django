@@ -34,7 +34,7 @@ class ShoppingListPage extends Component {
     });
   };
 
-  handleShowShoppingList = () => {
+  handleShowShoppingListForm = () => {
     const { showShoppingListForm } = this.state;
     this.setState({ showShoppingListForm: !showShoppingListForm });
   };
@@ -46,8 +46,6 @@ class ShoppingListPage extends Component {
       currentShoppingList: shoppingList,
       currentProducts: products
     });
-
-    console.log(shoppingList);
   };
   componentDidMount() {
     this.getUserShoppingList();
@@ -89,7 +87,7 @@ class ShoppingListPage extends Component {
                 <Col xs={12} md={12} lg={6}></Col>
               </Row>
 
-              <Button onClick={this.handleShowShoppingList}>
+              <Button onClick={this.handleShowShoppingListForm}>
                 Click to add a shopping list
               </Button>
 
