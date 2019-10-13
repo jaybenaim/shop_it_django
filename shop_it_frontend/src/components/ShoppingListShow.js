@@ -5,6 +5,7 @@ import { Table } from "react-bootstrap";
 class ShoppingListShow extends Component {
   state = {
     modalShow: false,
+    currentTotal: this.props.currentShoppingList.budget,
     isLoaded: false
   };
   handleAddProduct = () => {
@@ -12,10 +13,15 @@ class ShoppingListShow extends Component {
     this.setState({ isLoaded: !isLoaded, modalShow: !modalShow });
   };
 
+  updateTotal = total => {
+    this.setState({
+      currentTotal: total
+    });
+  };
   render() {
-    const { modalShow } = this.state;
+    const { modalShow, currentTotal } = this.state;
     const { currentShoppingList: shoppingList, currentProducts } = this.props;
-    const { id, budget, products } = shoppingList;
+    const { id, budget: initialBudget, products } = shoppingList;
 
     return (
       <>
@@ -23,13 +29,15 @@ class ShoppingListShow extends Component {
           <thead>
             <tr>
               <th>Shopping List</th>
-              <th>Budget</th>
+              <th>Initial Budget </th>
+              <th>Current Total </th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>Shopping List {id}</td>
-              <td>{budget}</td>
+              <td>$ {initialBudget}</td>
+              <td>$ {currentTotal}</td>
             </tr>
             <tr>
               <th colSpan="2" className="items-label">
@@ -46,8 +54,10 @@ class ShoppingListShow extends Component {
               {products.length >= 1 && (
                 <td>
                   <ShoppingListProducts
+                    budget={currentTotal}
                     currentProducts={currentProducts}
                     products={products}
+                    updateTotal={this.updateTotal}
                   />
                 </td>
               )}

@@ -20,7 +20,7 @@ class ShoppingListRow extends Component {
             Shopping List {id}{" "}
           </p>
         </td>
-        <td>{budget}</td>
+        <td>$ {budget}</td>
         <td>
           <ul>{products.length}</ul>
         </td>
