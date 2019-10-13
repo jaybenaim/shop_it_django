@@ -17,7 +17,7 @@
     "webpack": "^4.41.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "cd shop_it_frontend && react-scripts start",
     "build": "cd shop_it_frontend && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -39,7 +39,7 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://localhost:3000/",
+  "proxy": "https://jaybenaim.github.io/shop_it_django/",
   "homepage": ".",
   "devDependencies": {}
 }

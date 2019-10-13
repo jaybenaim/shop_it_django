@@ -38,6 +38,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://localhost:3000/",
+  "proxy": "https://jaybenaim.github.io/shop_it_django/",
   "homepage": "."
 }
