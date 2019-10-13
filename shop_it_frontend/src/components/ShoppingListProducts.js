@@ -4,19 +4,38 @@ import ShoppingListProductsShow from "./ShoppingListProductShow";
 
 class ShoppingListProducts extends Component {
   state = {
-    currentProducts: [],
+    productList: [{ name: null }],
     isLoaded: false
   };
-  getProductFromId = () => {
-    const { products } = this.props;
-    const { currentProducts, isLoaded } = this.state;
-    products.forEach(productId => {
-      Api.get(`products/${productId}/`).then(res => {
-        this.setState({
-          currentProducts: [...currentProducts, res.data]
+
+  getProducts = () => {
+    const { productList, isLoaded } = this.state;
+    const { products: productIds } = this.props;
+
+    let p = productIds.map(id => {
+      Api.get(`products/${id}/`)
+        .then(res => {
+          console.log(res.data);
+          this.setState({ productList: [...productList, { ...p }] });
+        })
+        .then(res => {
+          console.log(p);
         });
-      });
     });
+
+    // products.forEach(id => {
+    //   Api.get(`products/${id}/`).then(res => {
+    //     console.log(res.data);
+    //     let product = res.data;
+    //     this.setState(prevState => ({
+    //       productList: [...productList, product]
+    //     }));
+    //   });
+    // .then(res => {
+    //   this.setState({ isLoaded: !isLoaded });
+    // });
+    // });
+    // this.setState({ productList: p });
   };
   handleViewProduct = () => {
     const { currentProducts } = this.state;
@@ -24,22 +43,22 @@ class ShoppingListProducts extends Component {
   };
 
   componentDidMount() {
-    this.getProductFromId();
+    this.getProducts();
   }
 
   render() {
-    const { currentProducts, isLoaded } = this.state;
+    // const { productList, isLoaded } = this.state;
 
-    let productElements = currentProducts.map(
-      (product, i) =>
-        !isLoaded && (
-          <ShoppingListProductsShow key={i} currentProducts={product} />
-        )
-    );
+    // let productElements = productList.map(
+    //   (product, i) =>
+    //     !isLoaded && (
+    //       <ShoppingListProductsShow key={i} currentProducts={product} />
+    //     )
+    // );
 
     return (
       <div className="shopping-list-products">
-        <div onClick={this.handleViewProduct}>{productElements}</div>
+        {/* <div onClick={this.handleViewProduct}>{productElements}</div> */}
       </div>
     );
   }

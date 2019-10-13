@@ -14,7 +14,7 @@ class ShoppingListShow extends Component {
 
   render() {
     const { modalShow } = this.state;
-    const { currentShoppingList: shoppingList } = this.props;
+    const { currentShoppingList: shoppingList, currentProducts } = this.props;
     const { id, budget, products } = shoppingList;
 
     return (
@@ -43,9 +43,14 @@ class ShoppingListShow extends Component {
               </th>
             </tr>
             <tr>
-              <td>
-                <ShoppingListProducts products={products} />
-              </td>
+              {products.length >= 1 && (
+                <td>
+                  <ShoppingListProducts
+                    currentProducts={currentProducts}
+                    products={products}
+                  />
+                </td>
+              )}
             </tr>
           </tbody>
         </Table>

@@ -94,6 +94,7 @@ class ShoppingListPage extends Component {
               {showShoppingListProduct && <ShoppingListProductShow />}
               {showShoppingList && (
                 <ShoppingListShow
+                  currentProducts={currentProducts}
                   currentShoppingList={currentShoppingList}
                   handleShowShoppingList={this.handleShowShoppingList}
                 />

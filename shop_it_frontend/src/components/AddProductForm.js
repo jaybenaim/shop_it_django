@@ -9,20 +9,32 @@ class AddProductForm extends Component {
   ingredientsRef = React.createRef();
 
   state = {
-    productId: null,
+    productId: [],
     isLoaded: false
   };
   /// Item form searches through api products to display suggestions
   /// POST create product
   /// PATCH then add item to list
 
+  getProductIds = () => {
+    const { products } = this.props.shoppingList;
+    console.log(products);
+  };
   addProduct = () => {
     const name = this.nameRef.current.value;
     const price = this.priceRef.current.value;
-    const description = this.descriptionRef.current.value;
-    const ingredients = this.ingredientsRef.current.value;
+    let description = this.descriptionRef.current.value;
+    let ingredients = this.ingredientsRef.current.value;
 
     const { isLoaded } = this.state;
+
+    if (!description) {
+      description = "N/A";
+    }
+    if (!ingredients) {
+      ingredients = "N/A";
+    }
+
     const data = { name, price, description, ingredients };
 
     Api.post("products/", data, {
@@ -32,30 +44,38 @@ class AddProductForm extends Component {
       }
     })
       .then(res => {
-        console.log(res.statusText);
-        const { id } = res.data[0].id;
+        const { id } = res.data;
+        this.addProductToList(id);
         this.setState({ productId: id, isLoaded: !isLoaded });
+        console.log(res.statusText);
       })
       .catch(err => {
         console.log("Error: " + err);
       });
   };
-  addProductToList = () => {
-    const { id } = this.state.productId;
-    const data = {
-      products: [id]
+
+  addProductToList = productId => {
+    console.log(productId);
+    const { isLoaded } = this.state;
+    const { id: listId, products } = this.props.shoppingList;
+    console.log(listId);
+    let data = {
+      products: [...products, Number(productId)]
     };
-    Api.patch(`shopping_list/${id}/`, data, {
+    Api.patch(`shopping_list/${listId}/`, data, {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Token ${localStorage.token}`
       }
+    }).then(res => {
+      this.setState({ isLoaded: !isLoaded });
     });
   };
+
   handleSubmit = () => {
     const { isLoaded } = this.state;
     this.addProduct();
-    isLoaded && this.addProductToList();
+    // isLoaded && this.addProductToList();
   };
   render() {
     const { modalShow, shoppingList, handleAddProduct } = this.props;
@@ -96,6 +116,7 @@ class AddProductForm extends Component {
                 as="textarea"
                 rows="3"
                 ref={this.descriptionRef}
+                placeholder="N/A"
               />
             </Form.Group>
 
@@ -106,6 +127,7 @@ class AddProductForm extends Component {
                 as="textarea"
                 rows="3"
                 ref={this.ingredientsRef}
+                placeholder="N/A"
               />
             </Form.Group>
           </Form>
