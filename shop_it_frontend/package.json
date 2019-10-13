@@ -16,7 +16,7 @@
     "react-scripts": "3.2.0"
   },
   "scripts": {
-    "start": "node index.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -38,6 +38,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://jaybenaim.github.io/shop_it_django/",
+  "proxy": "https://localhost:3000",
   "homepage": "https://jaybenaim.github.io/shop_it_django/"
 }

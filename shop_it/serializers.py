@@ -30,6 +30,7 @@ class StoreSerializer(serializers.ModelSerializer):
         return Store.objects.create(**validated_data) 
 
     def update(self, store, validated_data): 
+        store.user = validated_data.get("user", store.user)
         store.name = validated_data.get("name", store.name)
         store.address = validated_data.get("address", store.address) 
         store.aisles.set(validated_data.get("aisles", store.aisles))

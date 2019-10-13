@@ -17,6 +17,7 @@ from rest_framework.authtoken.models import Token
 
 
 class Store(models.Model): 
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True)
     name = models.CharField(max_length=225)
     address = models.CharField(max_length=225)
     aisles = models.ManyToManyField('Aisle', related_name='stores', blank=True)
