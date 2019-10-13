@@ -9,7 +9,6 @@ class Store extends Component {
     stores: [],
     showForm: false,
     showStore: false,
-    currentStore: null,
     selectedStore: null
   };
 
@@ -28,42 +27,50 @@ class Store extends Component {
     });
   };
 
-  storeShowElements = () => {
-    const { stores, currentStore, selectedStore } = this.state;
+  allStores = () => {
+    const { stores, selectedStore } = this.state;
 
     return stores.map((store, i) => (
       <StoreShow
         key={i}
         {...store}
+        store={store}
         handleShowStore={this.handleShowStore}
-        currentStore={currentStore}
         selectedStore={selectedStore}
       />
     ));
   };
+
+  selectedStore = () => {
+    const { stores, selectedStore } = this.state;
+    const { id } = selectedStore;
+    return stores.map((store, i) => {
+      if (store.id === id) {
+        return (
+          <StorePage
+            key={i}
+            {...store}
+            handleShowStore={this.handleShowStore}
+          />
+        );
+      }
+    });
+  };
+
   handleShowForm = () => {
     const { showForm } = this.state;
     this.setState({ showForm: !showForm });
   };
-  handleShowStore = () => {
+  handleShowStore = store => {
     const { showStore } = this.state;
-    this.setState({ showStore: !showStore });
+    this.setState({ showStore: !showStore, selectedStore: store });
   };
-  // showStore = () => {
-  //   const { stores, currentStore } = this.state;
 
-  //   let selectedStore = stores.filter(store => {
-  //     if (store.id === currentStore) {
-  //       return store;
-  //     }
-  //   });
-  //   this.setState({ selectedStore });
-  // };
   componentDidMount() {
     this.getStores();
   }
   render() {
-    const { showForm, showStore, currentStore, selectedStore } = this.state;
+    const { showForm, showStore, selectedStore } = this.state;
     return (
       <Container>
         {!showStore ? (
@@ -92,7 +99,7 @@ class Store extends Component {
               <Col></Col>
             </Row>
 
-            {this.storeShowElements()}
+            {this.allStores()}
 
             <Row>
               <Col> </Col>
@@ -116,11 +123,8 @@ class Store extends Component {
             </Row>
           </>
         ) : (
-          <StorePage
-            handleShowStore={this.handleShowStore}
-            currentStore={currentStore}
-            selectedStore={selectedStore}
-          />
+          // <div>Hey</div>
+          <>{this.selectedStore()}</>
         )}
       </Container>
     );

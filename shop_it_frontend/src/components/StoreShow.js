@@ -20,21 +20,13 @@ class StoreShow extends Component {
       });
   };
   render() {
-    const {
-      id,
-      name,
-      address,
-      aisles,
-      handleShowStore,
-      currentStore,
-      selectedStore
-    } = this.props;
+    const { id, name, address, aisles, handleShowStore, store } = this.props;
     return (
       <Row>
-        <Col className="store-address" onClick={() => handleShowStore(id)}>
+        <Col className="store-address" onClick={() => handleShowStore(store)}>
           {address}
         </Col>
-        <Col className="store-name" onClick={() => handleShowStore(id)}>
+        <Col className="store-name" onClick={() => handleShowStore(store)}>
           {name}
         </Col>
         <Col className="store-aisles">{aisles.length}</Col>
