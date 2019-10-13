@@ -1,9 +1,19 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import Api from "../apis/api";
+import axios from "axios";
 class Store extends Component {
   state = {};
   // get stores for user
 
+  getStores = () => {
+    axios.get("http://localhost:8000/api/stores/").then(res => {
+      console.log(res.data);
+    });
+  };
+  componentDidMount() {
+    this.getStores();
+  }
   render() {
     return (
       <Container>
