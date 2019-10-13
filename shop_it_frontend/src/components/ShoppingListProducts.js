@@ -4,42 +4,22 @@ import ShoppingListProductsShow from "./ShoppingListProductShow";
 
 class ShoppingListProducts extends Component {
   state = {
-    productList: [{ name: null }],
+    productList: [],
     isLoaded: false
   };
 
   getProducts = () => {
-    const { productList, isLoaded } = this.state;
     const { products: productIds } = this.props;
-
-    let p = productIds.map(id => {
+    const list = [];
+    productIds.forEach(id => {
       Api.get(`products/${id}/`)
         .then(res => {
-          console.log(res.data);
-          this.setState({ productList: [...productList, { ...p }] });
+          list.push(res.data);
         })
         .then(res => {
-          console.log(p);
+          this.setState({ productList: list });
         });
     });
-
-    // products.forEach(id => {
-    //   Api.get(`products/${id}/`).then(res => {
-    //     console.log(res.data);
-    //     let product = res.data;
-    //     this.setState(prevState => ({
-    //       productList: [...productList, product]
-    //     }));
-    //   });
-    // .then(res => {
-    //   this.setState({ isLoaded: !isLoaded });
-    // });
-    // });
-    // this.setState({ productList: p });
-  };
-  handleViewProduct = () => {
-    const { currentProducts } = this.state;
-    return currentProducts;
   };
 
   componentDidMount() {
@@ -47,18 +27,18 @@ class ShoppingListProducts extends Component {
   }
 
   render() {
-    // const { productList, isLoaded } = this.state;
+    const { productList, isLoaded } = this.state;
 
-    // let productElements = productList.map(
-    //   (product, i) =>
-    //     !isLoaded && (
-    //       <ShoppingListProductsShow key={i} currentProducts={product} />
-    //     )
-    // );
+    let productElements = productList.map(
+      (product, i) =>
+        !isLoaded && (
+          <ShoppingListProductsShow key={i} currentProducts={product} />
+        )
+    );
 
     return (
       <div className="shopping-list-products">
-        {/* <div onClick={this.handleViewProduct}>{productElements}</div> */}
+        <div>{productElements}</div>
       </div>
     );
   }
