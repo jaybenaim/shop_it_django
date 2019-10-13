@@ -19,10 +19,10 @@
   "scripts": {
     "start": "cd shop_it_frontend && react-scripts start",
     "build": "cd shop_it_frontend && react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "test": "cd shop_it_frontend && react-scripts test",
+    "eject": "cd shop_it_frontend && react-scripts eject",
     "predeploy": "cd shop_it_frontend && npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "cd shop_it_frontend && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
