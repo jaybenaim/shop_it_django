@@ -30,7 +30,7 @@ function App() {
             <ShoppingListPage />
           </Route>
           {/*  if admin  */}
-          <Route path="/stores">
+          <Route exact path="/stores">
             <Store />
           </Route>
         </Switch>
