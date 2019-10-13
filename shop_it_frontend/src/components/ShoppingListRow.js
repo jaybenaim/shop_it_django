@@ -1,17 +1,11 @@
 import React, { Component } from "react";
-import ShoppingListProducts from "./ShoppingListProducts";
 
 class ShoppingListRow extends Component {
   state = {};
 
   render() {
-    const { href } = this.state;
     const { shoppingList, handleShowShoppingList } = this.props;
-    const { id, budget, user, products } = shoppingList;
-    const username = localStorage.username;
-    // const productElements = products.map((product, i) => {
-    //   return <ShoppingListProducts key={i} productId={product} />;
-    // });
+    const { id, budget, products } = shoppingList;
 
     return (
       <tr>

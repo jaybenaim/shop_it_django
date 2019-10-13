@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
 import Api from "../apis/api";
-import axios from "axios";
 
 class ShoppingListForm extends Component {
   state = {};
@@ -11,29 +10,26 @@ class ShoppingListForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    let name = this.nameRef.current.value;
+    // let name = this.nameRef.current.value;
     let budget = this.budgetRef.current.value;
     let user = localStorage.id;
     console.log(user + typeof user + budget + typeof budget);
-    axios
-      .post(
-        "http://localhost:8000/api/shopping_list/",
-        { budget, user: Number(user) },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Token ${window.localStorage.token}`
-          }
+    Api.post(
+      "shopping_list/",
+      { budget, user: Number(user) },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${window.localStorage.token}`
         }
-      )
-      .then(res => {
-        console.log(res.statusText);
-      });
+      }
+    ).then(res => {
+      console.log(res.statusText);
+    });
   };
 
   render() {
     console.log(localStorage.id);
-    const { handleShowShopppingList } = this.props;
     return (
       <Form>
         <Form.Group controlId="formBasicEmail">

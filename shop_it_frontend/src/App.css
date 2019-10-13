@@ -33,3 +33,18 @@ li {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+/* Store */
+.store-main-heading {
+  width: 500px;
+  text-align: center;
+}
+.store-col-header {
+  margin-bottom: 20px;
+  border: 2px solid black;
+  text-align: center;
+}
+.store-aisles,
+.store-name {
+  text-align: center;
+}

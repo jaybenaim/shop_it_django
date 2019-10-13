@@ -73,13 +73,12 @@ class AddProductForm extends Component {
   };
 
   handleSubmit = () => {
-    const { isLoaded } = this.state;
     this.addProduct();
     // isLoaded && this.addProductToList();
   };
   render() {
     const { modalShow, shoppingList, handleAddProduct } = this.props;
-    const { id, budget, products } = shoppingList;
+    const { id } = shoppingList;
 
     return (
       <Modal.Dialog show={modalShow.toString()}>

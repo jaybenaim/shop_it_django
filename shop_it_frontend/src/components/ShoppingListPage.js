@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Api from "../apis/api";
-import axios from "axios";
 import ShoppingListForm from "./ShoppingListForm";
 import { Container, Button, Row, Col } from "react-bootstrap";
 import ShoppingList from "./ShoppingList";
@@ -25,7 +24,7 @@ class ShoppingListPage extends Component {
         if (list.user === Number(id)) {
           return list;
         }
-        return;
+        return (list = null);
       });
       this.setState({
         shoppingLists: userShoppingList,
