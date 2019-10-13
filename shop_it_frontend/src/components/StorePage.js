@@ -53,7 +53,7 @@ class StorePage extends Component {
           </div>
         ) : (
           <>
-            <StoreProducts />
+            <StoreProducts handleShowProducts={this.handleShowProducts} />
           </>
         )}
       </>

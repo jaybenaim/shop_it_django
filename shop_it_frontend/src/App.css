@@ -1,3 +1,8 @@
+/* GLOBAL */
+a:hover {
+  cursor: pointer;
+}
+
 /* NAVBAR */
 
 li {
