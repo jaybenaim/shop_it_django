@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./";
-import App from "./shop_it_frontend/src/App";
+import App from "./App";
 import * as serviceWorker from "./shop_it_frontend/src/serviceWorker";
 import "bootstrap/dist/css/bootstrap.min.css";
 
