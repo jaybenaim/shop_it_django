@@ -5,28 +5,30 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ShoppingListPage from "./components/ShoppingListPage.js";
 import Store from "./components/Store";
 import Register from "./components/Register";
-import { Container } from "react-bootstrap";
+import { Container, Nav } from "react-bootstrap";
 function App() {
   return (
     <Container fluid={true} className="App container">
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/shop_it_django/">Home</Link>
-            </li>
-            <li>
-              <Link to="/shoppingList">Shopping Lists</Link>
-            </li>
-            {/* if admin */}
-            <li>
-              <Link to="/stores">Stores</Link>
-            </li>
-            <li>
-              <Register />
-            </li>
-          </ul>
-        </div>
+        <Nav className="justify-content-center navbar" activeKey="home">
+          <Nav.Item>
+            <Nav.Link href="/shop_it_django/" eventKey="home">
+              Home
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/shoppingList" eventKey="link-1">
+              Shopping List
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link eventKey="link-2">Stores</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Register />
+          </Nav.Item>
+        </Nav>
+
         <Switch>
           <Route exact path="/shop_it_django/">
             <Home />
