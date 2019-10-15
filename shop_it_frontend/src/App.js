@@ -5,9 +5,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ShoppingListPage from "./components/ShoppingListPage.js";
 import Store from "./components/Store";
 import Register from "./components/Register";
+import { Container } from "react-bootstrap";
 function App() {
   return (
-    <div className="App container">
+    <Container fluid={true} className="App container">
       <Router>
         <div>
           <ul>
@@ -39,7 +40,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-    </div>
+    </Container>
   );
 }
 

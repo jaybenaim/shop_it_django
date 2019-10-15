@@ -7,7 +7,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <Container fluid={true} className="home-container">
+        <Container className="home-container">
           <Row>
             <h1>Welcome To Shop It</h1>
           </Row>
