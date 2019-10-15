@@ -9,8 +9,10 @@ class StoreForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
+    const { handleShowForm } = this.props;
     let name = this.nameRef.current.value;
     let address = this.addressRef.current.value;
+
     let data = {
       name,
       address,
@@ -23,6 +25,7 @@ class StoreForm extends Component {
       }
     })
       .then(res => {
+        handleShowForm();
         console.log(res.statusText);
       })
       .catch(err => {
@@ -30,9 +33,10 @@ class StoreForm extends Component {
       });
   };
   render() {
+    const { showForm, handleShowForm } = this.props;
     return (
       <Modal.Dialog>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Add A Store</Modal.Title>
         </Modal.Header>
 
@@ -57,7 +61,9 @@ class StoreForm extends Component {
         </Form>
 
         <Modal.Footer>
-          <Button variant="secondary">Close</Button>
+          <Button variant="secondary" onClick={handleShowForm}>
+            Close
+          </Button>
           <Button variant="primary" onClick={this.handleSubmit}>
             Save changes
           </Button>

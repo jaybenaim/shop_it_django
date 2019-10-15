@@ -66,7 +66,9 @@ class ShoppingListPage extends Component {
         <div>
           {showShoppingListForm ? (
             <ShoppingListForm
+              handleShowShoppingListForm={this.handleShowShoppingListForm}
               handleShowShoppingList={this.handleShowShoppingList}
+              getUserShoppingList={this.getUserShoppingList}
             />
           ) : (
             <Container className="shopping-list-container">

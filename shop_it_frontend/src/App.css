@@ -53,7 +53,10 @@ li {
 .store-name {
   text-align: center;
 }
-
+.store-aisles,
+.store-name:hover {
+  cursor: pointer;
+}
 /* STORE PAGE */
 
 .store-page-container {

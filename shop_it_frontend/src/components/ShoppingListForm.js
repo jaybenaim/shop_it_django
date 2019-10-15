@@ -13,7 +13,7 @@ class ShoppingListForm extends Component {
     // let name = this.nameRef.current.value;
     let budget = this.budgetRef.current.value;
     let user = localStorage.id;
-    console.log(user + typeof user + budget + typeof budget);
+    const { handleShowShoppingListForm, getUserShoppingList } = this.props;
     Api.post(
       "shopping_list/",
       { budget, user: Number(user) },
@@ -24,6 +24,8 @@ class ShoppingListForm extends Component {
         }
       }
     ).then(res => {
+      handleShowShoppingListForm();
+      getUserShoppingList();
       console.log(res.statusText);
     });
   };

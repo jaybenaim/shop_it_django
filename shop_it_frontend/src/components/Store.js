@@ -37,6 +37,7 @@ class Store extends Component {
         store={store}
         handleShowStore={this.handleShowStore}
         selectedStore={selectedStore}
+        getStores={this.getStores}
       />
     ));
   };
@@ -117,7 +118,12 @@ class Store extends Component {
             <Row>
               <Col> </Col>
               <Col sm={12} md={12} lg={12}>
-                {showForm && <StoreForm />}
+                {showForm && (
+                  <StoreForm
+                    handleShowForm={this.handleShowForm}
+                    showForm={showForm}
+                  />
+                )}
               </Col>
               <Col> </Col>
             </Row>

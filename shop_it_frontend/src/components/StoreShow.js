@@ -4,7 +4,7 @@ import Api from "../apis/api";
 
 class StoreShow extends Component {
   destroyStore = () => {
-    const { id } = this.props;
+    const { id, getStores } = this.props;
 
     Api.delete(`stores/${id}/`, {
       headers: {
@@ -13,6 +13,8 @@ class StoreShow extends Component {
       }
     })
       .then(res => {
+        getStores();
+
         console.log("OK");
       })
       .catch(err => {
