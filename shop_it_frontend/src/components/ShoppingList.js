@@ -10,7 +10,12 @@ class ShoppingList extends Component {
   componentDidUpdate() {}
 
   render() {
-    const { shoppingLists, handleShowShoppingList, products } = this.props;
+    const {
+      shoppingLists,
+      handleShowShoppingList,
+      products,
+      getShoppingLists
+    } = this.props;
     const shoppingListElements = shoppingLists.map((shoppingList, i) => {
       return (
         <ShoppingListRow
@@ -19,6 +24,7 @@ class ShoppingList extends Component {
           //   productsLength={currentProductsLength}
           products={products}
           handleShowShoppingList={handleShowShoppingList}
+          getShoppingLists={getShoppingLists}
         />
       );
     });

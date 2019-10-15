@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
+import Api from "../apis/api";
 
 class ShoppingListRow extends Component {
   state = {};
@@ -45,6 +47,23 @@ class ShoppingListRow extends Component {
 
     return fullDate;
   };
+  destroyShoppingList = () => {
+    const { id } = this.props.shoppingList;
+    const { getShoppingLists } = this.props;
+    Api.delete(`shopping_list/${id}/`, {
+      headers: {
+        "Content-Type": "Application/json",
+        Authorization: `Token ${localStorage.token}`
+      }
+    })
+      .then(res => {
+        console.log("Shopping List Deleted");
+        getShoppingLists();
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   render() {
     const { shoppingList, handleShowShoppingList } = this.props;
     const { name, budget, products, date } = shoppingList;
@@ -57,6 +76,9 @@ class ShoppingListRow extends Component {
             <br />
             {this.formatDate(date)}
           </p>
+          <Button variant="danger" onClick={this.destroyShoppingList}>
+            Delete
+          </Button>
         </td>
 
         <td>$ {budget}</td>

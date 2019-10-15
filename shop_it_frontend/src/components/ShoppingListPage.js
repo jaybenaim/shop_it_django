@@ -82,6 +82,7 @@ class ShoppingListPage extends Component {
                       currentShoppingList={currentShoppingList}
                       handleShowShoppingList={this.handleShowShoppingList}
                       products={currentProducts}
+                      getShoppingLists={this.getShoppingLists}
                     />
                   )}
                 </Col>
