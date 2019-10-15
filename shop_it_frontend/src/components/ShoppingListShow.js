@@ -2,27 +2,51 @@ import React, { Component } from "react";
 import ShoppingListProducts from "./ShoppingListProducts";
 import AddProductForm from "./AddProductForm";
 import { Table } from "react-bootstrap";
+import Api from "../apis/api";
 class ShoppingListShow extends Component {
   state = {
-    modalShow: false,
+    showProductForm: false,
     currentTotal: this.props.currentShoppingList.budget,
-    isLoaded: false
-  };
-  handleAddProduct = () => {
-    const { isLoaded, modalShow } = this.state;
-    this.setState({ isLoaded: !isLoaded, modalShow: !modalShow });
+    isLoaded: false,
+    products: []
   };
 
+  getProducts = () => {
+    const { isLoaded } = this.state;
+    const { currentProducts: productIds, updateTotal } = this.props;
+    const list = [];
+
+    productIds.forEach(id => {
+      Api.get(`products/${id}/`).then(res => {
+        const { products } = this.state;
+        this.setState({ products: [...products, res.data] });
+      });
+    });
+
+    this.setState({ isLoaded: true });
+  };
+  handleAddProduct = () => {
+    const { isLoaded } = this.state;
+    this.handleShowProductForm();
+    // this.setState({ isLoaded: !isLoaded });
+  };
+  handleShowProductForm = () => {
+    const { showProductForm } = this.state;
+    this.setState({ showProductForm: !showProductForm });
+  };
   updateTotal = total => {
     this.setState({
       currentTotal: total
     });
   };
   render() {
-    const { modalShow, currentTotal } = this.state;
-    const { currentShoppingList: shoppingList, currentProducts } = this.props;
-    const { id, budget: initialBudget, products } = shoppingList;
-
+    const { showProductForm, currentTotal, isLoaded } = this.state;
+    const {
+      currentShoppingList: shoppingList,
+      currentProducts,
+      getShoppingLists
+    } = this.props;
+    const { name, budget: initialBudget, products } = shoppingList;
     return (
       <>
         <Table striped bordered hover>
@@ -35,7 +59,9 @@ class ShoppingListShow extends Component {
           </thead>
           <tbody>
             <tr>
-              <td>Shopping List {id}</td>
+              <td>
+                <strong>{name}</strong>{" "}
+              </td>
               <td>$ {initialBudget}</td>
               <td>$ {currentTotal}</td>
             </tr>
@@ -51,7 +77,7 @@ class ShoppingListShow extends Component {
               </th>
             </tr>
             <tr>
-              {products.length >= 1 && (
+              {products.length >= 1 && !isLoaded && (
                 <td>
                   <ShoppingListProducts
                     budget={currentTotal}
@@ -64,9 +90,11 @@ class ShoppingListShow extends Component {
             </tr>
           </tbody>
         </Table>
-        {modalShow && (
+        {showProductForm && (
           <AddProductForm
-            modalShow={modalShow}
+            getShoppingLists={getShoppingLists}
+            getProducts={this.getProducts}
+            handleShowProductForm={this.handleShowProductForm}
             handleAddProduct={this.handleAddProduct}
             shoppingList={shoppingList}
           />

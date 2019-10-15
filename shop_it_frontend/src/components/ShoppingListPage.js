@@ -16,7 +16,7 @@ class ShoppingListPage extends Component {
     isLoaded: false
   };
 
-  getUserShoppingList = () => {
+  getShoppingLists = () => {
     Api.get("shopping_list/").then(res => {
       const lists = res.data;
       const id = localStorage.id;
@@ -47,7 +47,7 @@ class ShoppingListPage extends Component {
     });
   };
   componentDidMount() {
-    this.getUserShoppingList();
+    this.getShoppingLists();
   }
 
   render() {
@@ -68,7 +68,7 @@ class ShoppingListPage extends Component {
             <ShoppingListForm
               handleShowShoppingListForm={this.handleShowShoppingListForm}
               handleShowShoppingList={this.handleShowShoppingList}
-              getUserShoppingList={this.getUserShoppingList}
+              getShoppingLists={this.getShoppingLists}
             />
           ) : (
             <Container className="shopping-list-container">
@@ -78,7 +78,7 @@ class ShoppingListPage extends Component {
                 <Col xs={12} md={12} lg={6}>
                   {isLoaded && (
                     <ShoppingList
-                      shoppingList={shoppingLists}
+                      shoppingLists={shoppingLists}
                       currentShoppingList={currentShoppingList}
                       handleShowShoppingList={this.handleShowShoppingList}
                       products={currentProducts}
@@ -95,6 +95,7 @@ class ShoppingListPage extends Component {
               {showShoppingListProduct && <ShoppingListProductShow />}
               {showShoppingList && (
                 <ShoppingListShow
+                  getShoppingLists={this.getShoppingLists}
                   currentProducts={currentProducts}
                   currentShoppingList={currentShoppingList}
                   handleShowShoppingList={this.handleShowShoppingList}

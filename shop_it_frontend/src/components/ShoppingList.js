@@ -10,12 +10,12 @@ class ShoppingList extends Component {
   componentDidUpdate() {}
 
   render() {
-    const { shoppingList, handleShowShoppingList, products } = this.props;
-    const shoppingListElements = shoppingList.map((shopping_list, i) => {
+    const { shoppingLists, handleShowShoppingList, products } = this.props;
+    const shoppingListElements = shoppingLists.map((shoppingList, i) => {
       return (
         <ShoppingListRow
           key={i}
-          shoppingList={shopping_list}
+          shoppingList={shoppingList}
           //   productsLength={currentProductsLength}
           products={products}
           handleShowShoppingList={handleShowShoppingList}

@@ -14,7 +14,6 @@ class StoreShow extends Component {
     })
       .then(res => {
         getStores();
-
         console.log("OK");
       })
       .catch(err => {

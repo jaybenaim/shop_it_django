@@ -55,10 +55,9 @@ class AddProductForm extends Component {
   };
 
   addProductToList = productId => {
-    console.log(productId);
     const { isLoaded } = this.state;
+    const { getProducts, getShoppingLists } = this.props;
     const { id: listId, products } = this.props.shoppingList;
-    console.log(listId);
     let data = {
       products: [...products, Number(productId)]
     };
@@ -69,19 +68,22 @@ class AddProductForm extends Component {
       }
     }).then(res => {
       this.setState({ isLoaded: !isLoaded });
+      getShoppingLists();
     });
   };
 
   handleSubmit = () => {
+    const { handleShowProductForm } = this.props;
     this.addProduct();
+    handleShowProductForm();
     // isLoaded && this.addProductToList();
   };
   render() {
-    const { modalShow, shoppingList, handleAddProduct } = this.props;
+    const { showProductForm, shoppingList, handleShowProductForm } = this.props;
     const { id } = shoppingList;
 
     return (
-      <Modal.Dialog show={modalShow.toString()}>
+      <Modal.Dialog show={handleShowProductForm.toString()}>
         <Modal.Header>
           <Modal.Title>Add a product to shopping list {id}</Modal.Title>
         </Modal.Header>
@@ -133,7 +135,7 @@ class AddProductForm extends Component {
         </Modal.Body>
 
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleAddProduct}>
+          <Button variant="secondary" onClick={handleShowProductForm}>
             Close
           </Button>
           <Button variant="primary" onClick={this.handleSubmit}>

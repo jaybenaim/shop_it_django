@@ -30,7 +30,9 @@ li {
 .add-item-button:hover {
   cursor: pointer;
 }
-
+td p {
+  cursor: pointer;
+}
 /* ADD PRODUCT FROM */
 
 .form-description,

@@ -54,7 +54,8 @@ class ShoppingList(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     budget = models.FloatField(null=False) 
     products = models.ManyToManyField('Product', related_name='lists', blank=True)
-    
+    name = models.TextField(null=True, blank=True) 
+    date = models.DateField(null=True, blank=True, auto_now_add=True)
     def __str__(self): 
         return self.user
 

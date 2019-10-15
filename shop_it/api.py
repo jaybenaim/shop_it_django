@@ -67,7 +67,7 @@ class ProductViewSet(viewsets.ModelViewSet):
         return super(ProductViewSet, self).get_permissions() 
 
 class ShoppingListViewSet(viewsets.ModelViewSet): 
-    queryset = ShoppingList.objects.all() 
+    queryset = ShoppingList.objects.all().order_by("date")
     serializer_class = ShoppingListSerializer 
     permission_classes = [permissions.AllowAny, permissions.IsAuthenticated] 
 

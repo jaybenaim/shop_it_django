@@ -10,13 +10,13 @@ class ShoppingListForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // let name = this.nameRef.current.value;
+    let name = this.nameRef.current.value;
     let budget = this.budgetRef.current.value;
     let user = localStorage.id;
-    const { handleShowShoppingListForm, getUserShoppingList } = this.props;
+    const { handleShowShoppingListForm, getShoppingLists } = this.props;
     Api.post(
       "shopping_list/",
-      { budget, user: Number(user) },
+      { budget, user: Number(user), name },
       {
         headers: {
           "Content-Type": "application/json",
@@ -25,7 +25,7 @@ class ShoppingListForm extends Component {
       }
     ).then(res => {
       handleShowShoppingListForm();
-      getUserShoppingList();
+      getShoppingLists();
       console.log(res.statusText);
     });
   };
