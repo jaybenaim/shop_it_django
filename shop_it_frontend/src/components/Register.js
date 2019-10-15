@@ -23,6 +23,7 @@ class Register extends Component {
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;
         console.log(res.statusText);
+        this.displayForm("");
         this.setState({ loggedIn: true });
       })
       .catch(err => {

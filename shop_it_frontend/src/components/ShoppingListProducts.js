@@ -5,7 +5,7 @@ import ShoppingListProductsShow from "./ShoppingListProductShow";
 class ShoppingListProducts extends Component {
   state = {
     productList: [],
-    total: Number(this.props.budget),
+    total: Number(this.props.total),
     isLoaded: false
   };
 

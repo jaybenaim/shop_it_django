@@ -8,13 +8,27 @@ class ShoppingListShow extends Component {
     showProductForm: false,
     currentTotal: this.props.currentShoppingList.budget,
     isLoaded: false,
-    products: []
+    products: [],
+    totalClass: null
   };
 
+  getClass = () => {
+    let { currentTotal } = this.state;
+    currentTotal = Number(currentTotal);
+
+    if (
+      (currentTotal >= 1 && currentTotal <= 14 && currentTotal >= 0) ||
+      currentTotal <= 0
+    ) {
+      return "danger";
+    } else if (currentTotal >= 15 && currentTotal <= 30) {
+      return "warning";
+    } else {
+      return "normal";
+    }
+  };
   getProducts = () => {
-    const { isLoaded } = this.state;
-    const { currentProducts: productIds, updateTotal } = this.props;
-    const list = [];
+    const { currentProducts: productIds } = this.props;
 
     productIds.forEach(id => {
       Api.get(`products/${id}/`).then(res => {
@@ -22,12 +36,12 @@ class ShoppingListShow extends Component {
         this.setState({ products: [...products, res.data] });
       });
     });
-
     this.setState({ isLoaded: true });
   };
   handleAddProduct = () => {
-    const { isLoaded } = this.state;
+    const { getShoppingLists } = this.props;
     this.handleShowProductForm();
+    getShoppingLists();
     // this.setState({ isLoaded: !isLoaded });
   };
   handleShowProductForm = () => {
@@ -39,8 +53,12 @@ class ShoppingListShow extends Component {
       currentTotal: total
     });
   };
+
+  componentDidUpdate() {
+    this.state["totalClass"] = this.getClass();
+  }
   render() {
-    const { showProductForm, currentTotal, isLoaded } = this.state;
+    const { showProductForm, currentTotal, isLoaded, totalClass } = this.state;
     const {
       currentShoppingList: shoppingList,
       currentProducts,
@@ -63,7 +81,7 @@ class ShoppingListShow extends Component {
                 <strong>{name}</strong>{" "}
               </td>
               <td>$ {initialBudget}</td>
-              <td>$ {currentTotal}</td>
+              <td className={totalClass}>$ {currentTotal}</td>
             </tr>
             <tr>
               <th colSpan="2" className="items-label">
@@ -80,7 +98,7 @@ class ShoppingListShow extends Component {
               {products.length >= 1 && !isLoaded && (
                 <td>
                   <ShoppingListProducts
-                    budget={currentTotal}
+                    total={currentTotal}
                     currentProducts={currentProducts}
                     products={products}
                     updateTotal={this.updateTotal}
@@ -97,6 +115,7 @@ class ShoppingListShow extends Component {
             handleShowProductForm={this.handleShowProductForm}
             handleAddProduct={this.handleAddProduct}
             shoppingList={shoppingList}
+            updateTotal={this.updateTotal}
           />
         )}
       </>

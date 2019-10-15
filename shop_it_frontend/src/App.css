@@ -64,3 +64,12 @@ td p {
 .store-page-container {
   text-align: center;
 }
+
+/* SHOPPING LIST TOTAL */
+
+.warning {
+  background: yellow;
+}
+.danger {
+  background: red;
+}
