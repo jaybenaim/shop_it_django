@@ -23,6 +23,7 @@ class Register extends Component {
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;
         console.log(res.statusText);
+        this.setState({ loggedIn: true });
       })
       .catch(err => {
         console.log(err);
@@ -41,6 +42,8 @@ class Register extends Component {
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;
         console.log(res.statusText);
+        this.displayForm("");
+        this.setState({ loggedIn: true });
       })
       .catch(err => {
         console.log(err);
@@ -52,7 +55,7 @@ class Register extends Component {
     localStorage.token = "";
     localStorage.id = "";
     localStorage.username = "";
-
+    this.displayForm("");
     this.setState({ loggedIn: false });
   };
 
@@ -91,6 +94,7 @@ class Register extends Component {
   );
 
   render() {
+    const { displayedForm } = this.state;
     let form;
     switch (this.state.displayedForm) {
       case "login":
@@ -105,7 +109,7 @@ class Register extends Component {
     return (
       <div className="container">
         {this.state.loggedIn ? this.loggedInNav : this.loggedOutNav}
-        {form}
+        {displayedForm && <>{form}</>}
         <div className="login-welcome">
           {this.state.loggedIn
             ? `Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
