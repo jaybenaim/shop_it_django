@@ -31,15 +31,11 @@ class Register extends Component {
 
   handleLogin = (e, data) => {
     e.preventDefault();
-    Axios.post(
-      "https://jaybenaim.github.io/shop_it_django/authenticate/",
-      data,
-      {
-        headers: {
-          "Content-Type": "application/json"
-        }
+    Axios.post("https://shop-it-quick.herokuapp.com/authenticate/", data, {
+      headers: {
+        "Content-Type": "application/json"
       }
-    )
+    })
       .then(res => {
         localStorage.token = res.data.token;
         localStorage.id = res.data.id;
