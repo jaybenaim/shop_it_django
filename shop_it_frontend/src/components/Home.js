@@ -12,7 +12,7 @@ class Home extends React.Component {
             <h1>Welcome To Shop It</h1>
           </Row>
           <Row>
-            <Col lg={12} className="home-image-container">
+            <Col sm={12} md={12} lg={12} className="home-image-container">
               <div
                 // src="../public/images/cart.jpg"
                 // alt="Shopping cart image"
@@ -20,28 +20,34 @@ class Home extends React.Component {
               ></div>
             </Col>
           </Row>
-          <Row>
-            <Col>
-              <Link to="/stores">
-                <div className="home-store-image-container"> </div>{" "}
-              </Link>
-            </Col>
-            <Col>
-              <Link to="shoppingList/">
-                <div className="home-list-image-container"></div>{" "}
-              </Link>
-            </Col>
-            <Col>
-              <div className="home-search-box-container">
-                <div className="home-search-icon">
-                  <span className="search-icon-label">
-                    Search for a product
-                  </span>
-                  <i class="fa fa-search"></i>
+          <div className="home-content">
+            <Row>
+              <Col>
+                <Link to="/stores">
+                  <div className="home-store-image-container">
+                    <span className="home-store-label">View Stores </span>
+                  </div>{" "}
+                </Link>
+              </Col>
+              <Col>
+                <Link to="shoppingList/">
+                  <div className="home-list-image-container">
+                    <span className="home-list-label">View Shopping Lists</span>
+                  </div>{" "}
+                </Link>
+              </Col>
+              <Col>
+                <div className="home-search-box-container">
+                  <div className="home-search-icon">
+                    <span className="search-icon-label">
+                      Search for a product
+                    </span>
+                    <i class="fa fa-search"></i>
+                  </div>
                 </div>
-              </div>
-            </Col>
-          </Row>
+              </Col>
+            </Row>
+          </div>
         </Container>
       </>
     );
