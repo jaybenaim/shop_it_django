@@ -3,6 +3,7 @@ import Axios from "axios";
 import Login from "./Login";
 import Signup from "./Signup";
 import Api from "../apis/api";
+import { Container, Col, Row } from "react-bootstrap";
 
 class Register extends Component {
   state = {
@@ -108,16 +109,24 @@ class Register extends Component {
         form = null;
     }
     return (
-      <div className="container">
-        {this.state.loggedIn ? this.loggedInNav : this.loggedOutNav}
-        {displayedForm && <>{form}</>}
-        <div className="login-welcome">
-          {this.state.loggedIn
-            ? `Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
-                localStorage.username.slice(1)}`
-            : "Please Log In"}
-        </div>
-      </div>
+      <Container className=" navbar-register">
+        <Row>
+          <Col xs={4} md={4} ld={4}></Col>
+          <Col xs={4} md={4} ld={4}></Col>
+          <Col xs={4} md={4} ld={4}>
+            <div>
+              {this.state.loggedIn ? this.loggedInNav : this.loggedOutNav}
+              {displayedForm && <>{form}</>}
+              <div className="login-welcome">
+                {this.state.loggedIn
+                  ? `Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
+                      localStorage.username.slice(1)}`
+                  : "Please Log In"}
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }

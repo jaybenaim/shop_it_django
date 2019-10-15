@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import ShoppingListPage from "./components/ShoppingListPage.js";
 import Store from "./components/Store";
+import Register from "./components/Register";
 function App() {
   return (
     <div className="App container">
@@ -11,7 +12,7 @@ function App() {
         <div>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/shop_it_django/">Home</Link>
             </li>
             <li>
               <Link to="/shoppingList">Shopping Lists</Link>
@@ -20,10 +21,13 @@ function App() {
             <li>
               <Link to="/stores">Stores</Link>
             </li>
+            <li>
+              <Register />
+            </li>
           </ul>
         </div>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/shop_it_django/">
             <Home />
           </Route>
           <Route path="/shoppingList">
