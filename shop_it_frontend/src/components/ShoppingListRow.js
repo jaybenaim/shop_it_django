@@ -5,13 +5,13 @@ class ShoppingListRow extends Component {
 
   render() {
     const { shoppingList, handleShowShoppingList } = this.props;
-    const { id, budget, products } = shoppingList;
+    const { name, budget, products } = shoppingList;
 
     return (
       <tr>
         <td>
           <p onClick={() => handleShowShoppingList(shoppingList, products)}>
-            Shopping List {id}{" "}
+            {name}
           </p>
         </td>
         <td>$ {budget}</td>
