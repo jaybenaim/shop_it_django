@@ -55,7 +55,8 @@ class ShoppingListShow extends Component {
   };
 
   componentDidUpdate() {
-    this.state["totalClass"] = this.getClass();
+    this.setState({ totalClass: this.getClass() });
+    // this.state["totalClass"] = this.getClass();
   }
   render() {
     const { showProductForm, currentTotal, isLoaded, totalClass } = this.state;

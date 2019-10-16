@@ -54,6 +54,8 @@ class Store extends Component {
             handleShowStore={this.handleShowStore}
           />
         );
+      } else {
+        return null;
       }
     });
   };
@@ -71,7 +73,7 @@ class Store extends Component {
     this.getStores();
   }
   render() {
-    const { showForm, showStore, selectedStore } = this.state;
+    const { showForm, showStore } = this.state;
     return (
       <Container>
         {!showStore ? (

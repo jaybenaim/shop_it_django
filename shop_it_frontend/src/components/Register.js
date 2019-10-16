@@ -3,7 +3,6 @@ import Axios from "axios";
 import Login from "./Login";
 import Signup from "./Signup";
 import Api from "../apis/api";
-import { Container, Col, Row } from "react-bootstrap";
 
 class Register extends Component {
   state = {

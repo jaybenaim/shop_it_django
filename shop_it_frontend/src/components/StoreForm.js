@@ -33,7 +33,7 @@ class StoreForm extends Component {
       });
   };
   render() {
-    const { showForm, handleShowForm } = this.props;
+    const { handleShowForm } = this.props;
     return (
       <Modal.Dialog>
         <Modal.Header>

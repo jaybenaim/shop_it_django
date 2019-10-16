@@ -2,7 +2,7 @@ import React, { Component } from "react";
 class ShoppingListProductShow extends Component {
   state = {};
   render() {
-    const { currentProducts, total } = this.props;
+    const { currentProducts } = this.props;
     const { name, price, description, ingredients } = currentProducts;
     return (
       <div>

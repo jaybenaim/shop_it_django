@@ -56,7 +56,7 @@ class AddProductForm extends Component {
 
   addProductToList = productId => {
     const { isLoaded } = this.state;
-    const { getProducts, getShoppingLists } = this.props;
+    const { getShoppingLists } = this.props;
     const { id: listId, products } = this.props.shoppingList;
     let data = {
       products: [...products, Number(productId)]
@@ -73,7 +73,7 @@ class AddProductForm extends Component {
   };
 
   handleSubmit = () => {
-    const { handleShowProductForm, getShoppingLists, getProducts } = this.props;
+    const { handleShowProductForm, getShoppingLists } = this.props;
     // const price = this.priceRef.current.value;
 
     this.addProduct();

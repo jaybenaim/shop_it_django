@@ -12,19 +12,13 @@ function App() {
       <Router>
         <Nav className="justify-content-center navbar">
           <Nav.Item>
-            <Nav.Link>
-              <Link to="/shop_it_django">Home</Link>
-            </Nav.Link>
+            <Link to="/shop_it_django">Home</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="shopping_list"> Shopping List</Link>
-            </Nav.Link>
+            <Link to="shopping_list"> Shopping List</Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link>
-              <Link to="stores"> Stores </Link>
-            </Nav.Link>
+            <Link to="stores"> Stores </Link>
           </Nav.Item>
           <Nav.Item>
             <Register />

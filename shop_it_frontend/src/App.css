@@ -39,6 +39,8 @@ li {
 }
 .navbar a {
   font-size: 23px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 /* SHOPPING LIST */
 .shopping-list-heading {

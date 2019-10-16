@@ -35,11 +35,9 @@ class ShoppingListRow extends Component {
     let month = date.pop(-1);
     month = months[month];
     if (day >= 10) {
-      console.log(day / day[1]);
       day = day + days[day[1]];
     } else {
       day = day + days[day];
-      console.log(day);
     }
 
     let fullDate = month + "  " + day;

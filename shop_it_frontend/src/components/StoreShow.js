@@ -21,7 +21,7 @@ class StoreShow extends Component {
       });
   };
   render() {
-    const { id, name, address, aisles, handleShowStore, store } = this.props;
+    const { name, address, aisles, handleShowStore, store } = this.props;
     return (
       <Row>
         <Col className="store-address" onClick={() => handleShowStore(store)}>
