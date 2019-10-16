@@ -6,14 +6,14 @@ import Api from "../apis/api";
 class ShoppingListShow extends Component {
   state = {
     showProductForm: false,
-    currentTotal: this.props.currentShoppingList.budget,
+    // currentTotal: this.props.currentTotal,
     isLoaded: false,
     products: [],
     totalClass: null
   };
 
   getClass = () => {
-    let { currentTotal } = this.state;
+    let { currentTotal } = this.props;
     currentTotal = Number(currentTotal);
 
     if (
@@ -48,21 +48,22 @@ class ShoppingListShow extends Component {
     const { showProductForm } = this.state;
     this.setState({ showProductForm: !showProductForm });
   };
-  updateTotal = total => {
-    this.setState({
-      currentTotal: total
-    });
-  };
+  // updateTotal = total => {
+  //   this.setState({
+  //     currentTotal: total
+  //   });
+  // };
 
   componentDidUpdate() {
     this.state["totalClass"] = this.getClass();
   }
   render() {
-    const { showProductForm, currentTotal, isLoaded, totalClass } = this.state;
+    const { showProductForm, isLoaded, totalClass } = this.state;
     const {
       currentShoppingList: shoppingList,
       currentProducts,
-      getShoppingLists
+      getShoppingLists,
+      currentTotal
     } = this.props;
     const { name, budget: initialBudget, products } = shoppingList;
     return (

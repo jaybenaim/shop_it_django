@@ -13,8 +13,13 @@ class ShoppingListPage extends Component {
     handleShowShoppingList: false,
     currentShoppingList: null,
     currentProducts: [],
-
+    currentTotal: 0,
     isLoaded: false
+  };
+  updateTotal = total => {
+    this.setState({
+      currentTotal: total
+    });
   };
 
   getShoppingLists = () => {
@@ -29,6 +34,7 @@ class ShoppingListPage extends Component {
       });
       this.setState({
         shoppingLists: userShoppingList,
+        // currentTotal: userShoppingList[0].budget,
         isLoaded: !this.state.loaded
       });
     });
@@ -59,6 +65,7 @@ class ShoppingListPage extends Component {
       shoppingLists,
       currentShoppingList,
       currentProducts,
+      currentTotal,
       isLoaded
     } = this.state;
 
@@ -84,6 +91,8 @@ class ShoppingListPage extends Component {
                       handleShowShoppingList={this.handleShowShoppingList}
                       products={currentProducts}
                       getShoppingLists={this.getShoppingLists}
+                      currentTotal={currentTotal}
+                      updateTotal={this.updateTotal}
                     />
                   )}
                 </Col>
@@ -101,6 +110,8 @@ class ShoppingListPage extends Component {
                   currentProducts={currentProducts}
                   currentShoppingList={currentShoppingList}
                   handleShowShoppingList={this.handleShowShoppingList}
+                  currentTotal={currentTotal}
+                  updateTotal={this.updateTotal}
                 />
               )}
             </Container>

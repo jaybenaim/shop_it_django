@@ -28,7 +28,7 @@ class ShoppingListProducts extends Component {
           this.setState({
             productList: list
           });
-          updateTotal(this.state.total);
+          // updateTotal(this.state.total);
         });
     });
   };

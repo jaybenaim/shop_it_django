@@ -63,8 +63,12 @@ class ShoppingListRow extends Component {
         console.log(err);
       });
   };
+  componentDidUpdate() {
+    const { updateTotal } = this.props;
+    // updateTotal();
+  }
   render() {
-    const { shoppingList, handleShowShoppingList } = this.props;
+    const { shoppingList, handleShowShoppingList, currentTotal } = this.props;
     const { name, budget, products, date } = shoppingList;
 
     return (
@@ -83,7 +87,7 @@ class ShoppingListRow extends Component {
         <td>
           $ {budget}
           <br />
-          <span></span>
+          <span>Total: {currentTotal}</span>
         </td>
 
         <td>
