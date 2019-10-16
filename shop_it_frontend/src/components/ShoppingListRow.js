@@ -3,7 +3,6 @@ import { Button } from "react-bootstrap";
 import Api from "../apis/api";
 
 class ShoppingListRow extends Component {
-  state = {};
   formatDate = date => {
     const months = {
       1: "January",
@@ -81,7 +80,12 @@ class ShoppingListRow extends Component {
           </Button>
         </td>
 
-        <td>$ {budget}</td>
+        <td>
+          $ {budget}
+          <br />
+          <span></span>
+        </td>
+
         <td>
           <ul>{products.length}</ul>
         </td>

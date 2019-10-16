@@ -13,6 +13,7 @@ class ShoppingListPage extends Component {
     handleShowShoppingList: false,
     currentShoppingList: null,
     currentProducts: [],
+
     isLoaded: false
   };
 
