@@ -29,6 +29,12 @@ class ShoppingListForm extends Component {
       console.log(res.statusText);
     });
   };
+  goBack = () => {
+    const { handleShowShoppingListForm, getShoppingLists } = this.props;
+
+    handleShowShoppingListForm();
+    getShoppingLists();
+  };
 
   render() {
     console.log(localStorage.id);
@@ -51,7 +57,7 @@ class ShoppingListForm extends Component {
             ref={this.budgetRef}
           />
         </Form.Group>
-
+        <Button onClick={() => this.goBack()}>Back</Button>
         <Button variant="primary" type="submit" onClick={this.handleSubmit}>
           Submit
         </Button>

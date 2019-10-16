@@ -73,13 +73,12 @@ class AddProductForm extends Component {
   };
 
   handleSubmit = () => {
-    const { handleShowProductForm, updateTotal } = this.props;
-    const price = this.priceRef.current.value;
+    const { handleShowProductForm, getShoppingLists, getProducts } = this.props;
+    // const price = this.priceRef.current.value;
 
     this.addProduct();
     handleShowProductForm();
-    updateTotal(price);
-    // isLoaded && this.addProductToList();
+    getShoppingLists();
   };
   render() {
     const { shoppingList, handleShowProductForm } = this.props;

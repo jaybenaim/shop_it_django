@@ -73,7 +73,7 @@ class ShoppingListPage extends Component {
           ) : (
             <Container className="shopping-list-container">
               <Row>
-                <h2>Your Shopping Lists</h2>
+                <h2 className="shopping-list-heading">Your Shopping Lists</h2>
                 <Col xs={12} md={12} lg={6}></Col>
                 <Col xs={12} md={12} lg={6}>
                   {isLoaded && (

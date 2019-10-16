@@ -40,7 +40,11 @@ li {
 .navbar a {
   font-size: 23px;
 }
-
+/* SHOPPING LIST */
+.shopping-list-heading {
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
 /* SHOPPING LIST - PRODUCTS */
 
 .add-item-button {
