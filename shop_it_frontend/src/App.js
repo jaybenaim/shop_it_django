@@ -10,19 +10,21 @@ function App() {
   return (
     <Container fluid={true} className="App container">
       <Router>
-        <Nav className="justify-content-center navbar" activeKey="home">
+        <Nav className="justify-content-center navbar">
           <Nav.Item>
-            <Nav.Link href="/shop_it_django/" eventKey="home">
-              Home
+            <Nav.Link>
+              <Link to="/shop_it_django">Home</Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/shoppingList" eventKey="link-1">
-              Shopping List
+            <Nav.Link>
+              <Link to="shopping_list"> Shopping List</Link>
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link eventKey="link-2">Stores</Nav.Link>
+            <Nav.Link>
+              <Link to="stores"> Stores </Link>
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item>
             <Register />
@@ -33,7 +35,7 @@ function App() {
           <Route exact path="/shop_it_django/">
             <Home />
           </Route>
-          <Route path="/shoppingList">
+          <Route path="/shopping_list">
             <ShoppingListPage />
           </Route>
           {/*  if admin  */}
