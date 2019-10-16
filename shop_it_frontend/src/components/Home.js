@@ -12,28 +12,30 @@ class Home extends React.Component {
             <h1>Welcome To Shop It</h1>
           </Row>
           <Row>
-            <Col sm={12} md={12} lg={12} className="home-image-container">
-              <div
-                // src="../public/images/cart.jpg"
-                // alt="Shopping cart image"
-                className="home-image-cart"
-              ></div>
-            </Col>
+            <Link to="/shop_it_django/">
+              <Col sm={12} md={12} lg={12} className="home-image-container">
+                <div
+                  // src="../public/images/cart.jpg"
+                  // alt="Shopping cart image"
+                  className="home-image-cart"
+                ></div>
+              </Col>
+            </Link>
           </Row>
           <div className="home-content">
             <Row>
               <Col>
-                <Link to="/stores">
+                <Link to="stores">
                   <div className="home-store-image-container">
                     <span className="home-store-label">View Stores </span>
                   </div>{" "}
                 </Link>
               </Col>
               <Col>
-                <Link to="shoppingList/">
+                <Link to="shopping_list">
                   <div className="home-list-image-container">
                     <span className="home-list-label">View Shopping Lists</span>
-                  </div>{" "}
+                  </div>
                 </Link>
               </Col>
               <Col>
