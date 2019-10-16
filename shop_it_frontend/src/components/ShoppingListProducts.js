@@ -39,7 +39,13 @@ class ShoppingListProducts extends Component {
 
   render() {
     const { productList, isLoaded, total } = this.state;
-
+    const {
+      products,
+      shoppingList,
+      getProducts,
+      handleShowProductForm,
+      getShoppingLists
+    } = this.props;
     let productElements = productList.map(
       (product, i) =>
         !isLoaded && (
@@ -47,6 +53,11 @@ class ShoppingListProducts extends Component {
             key={i}
             currentProducts={product}
             total={total}
+            productIds={products}
+            shoppingList={shoppingList}
+            getProducts={getProducts}
+            // handleShowProductForm={handleShowProductForm}
+            getShoppingLists={getShoppingLists}
           />
         )
     );

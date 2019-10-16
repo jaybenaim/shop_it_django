@@ -62,7 +62,8 @@ class ShoppingListShow extends Component {
     const {
       currentShoppingList: shoppingList,
       currentProducts,
-      getShoppingLists
+      getShoppingLists,
+      handleShowProductForm
     } = this.props;
     const { name, budget: initialBudget, products } = shoppingList;
     return (
@@ -102,6 +103,10 @@ class ShoppingListShow extends Component {
                     currentProducts={currentProducts}
                     products={products}
                     updateTotal={this.updateTotal}
+                    shoppingList={shoppingList}
+                    getProducts={this.getProducts}
+                    // handleShowProductForm={handleShowProductForm}
+                    getShoppingLists={getShoppingLists}
                   />
                 </td>
               )}

@@ -21,7 +21,6 @@ class ShoppingList extends Component {
         <ShoppingListRow
           key={i}
           shoppingList={shoppingList}
-          //   productsLength={currentProductsLength}
           products={products}
           handleShowShoppingList={handleShowShoppingList}
           getShoppingLists={getShoppingLists}

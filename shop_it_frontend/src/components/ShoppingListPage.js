@@ -13,7 +13,6 @@ class ShoppingListPage extends Component {
     handleShowShoppingList: false,
     currentShoppingList: null,
     currentProducts: [],
-
     isLoaded: false
   };
 
@@ -101,6 +100,7 @@ class ShoppingListPage extends Component {
                   currentProducts={currentProducts}
                   currentShoppingList={currentShoppingList}
                   handleShowShoppingList={this.handleShowShoppingList}
+                  getShoppingLists={this.getShoppingLists}
                 />
               )}
             </Container>
