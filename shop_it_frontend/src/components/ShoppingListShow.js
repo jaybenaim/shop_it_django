@@ -29,19 +29,20 @@ class ShoppingListShow extends Component {
   };
   getProducts = () => {
     const { currentProducts: productIds } = this.props;
-
+    const { isLoaded } = this.state;
     productIds.forEach(id => {
       Api.get(`products/${id}/`).then(res => {
         const { products } = this.state;
         this.setState({ products: [...products, res.data] });
       });
     });
-    this.setState({ isLoaded: true });
+    this.setState({ isLoaded: !isLoaded });
   };
   handleAddProduct = () => {
     const { getShoppingLists } = this.props;
     this.handleShowProductForm();
     getShoppingLists();
+    this.getProducts();
     // this.setState({ isLoaded: !isLoaded });
   };
   handleShowProductForm = () => {
@@ -55,7 +56,7 @@ class ShoppingListShow extends Component {
   };
 
   componentDidUpdate() {
-    this.setState({ totalClass: this.getClass() });
+    // this.setState({ totalClass: this.getClass() });
     // this.state["totalClass"] = this.getClass();
   }
   render() {
