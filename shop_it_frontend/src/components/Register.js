@@ -18,7 +18,6 @@ class Register extends Component {
       password: data.password
     })
       .then(res => {
-        console.log(res.data);
         localStorage.token = res.data.token;
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;

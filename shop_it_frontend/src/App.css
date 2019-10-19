@@ -191,7 +191,7 @@ h1 {
 
 @media (max-width: 520px) {
   html {
-    width: 105%;
+    width: 100%;
   }
   h1 {
     display: block;
@@ -201,11 +201,12 @@ h1 {
   .home-content {
     padding: 0;
     width: 400px;
-    margin-left: 10px;
+    margin-left: -2px;
   }
   .home-image-cart {
     min-width: 400px;
     margin: 0 auto;
+    margin-left: -2px;
   }
   .home-store-image-container,
   .home-list-image-container,

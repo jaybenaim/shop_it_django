@@ -44,7 +44,7 @@ class Home extends React.Component {
                     <span className="search-icon-label">
                       Search for a product
                     </span>
-                    <i class="fa fa-search"></i>
+                    <i className="fa fa-search"></i>
                   </div>
                 </div>
               </Col>
