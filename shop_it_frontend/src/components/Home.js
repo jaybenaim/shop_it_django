@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { BrowserRouter as Link } from "react-router-dom";
+import { BrowserRouter as a } from "react-router-dom";
 
 class Home extends React.Component {
   state = {};
@@ -12,31 +12,27 @@ class Home extends React.Component {
             <h1>Welcome To Shop It</h1>
           </Row>
           <Row>
-            <Link to="/shop_it_django/">
-              <Col sm={12} md={12} lg={12} className="home-image-container">
-                <div
-                  // src="../public/images/cart.jpg"
-                  // alt="Shopping cart image"
-                  className="home-image-cart"
-                ></div>
+            <a href="/shop_it_django/">
+              <Col className="home-image-container">
+                <div className="home-image-cart"></div>
               </Col>
-            </Link>
+            </a>
           </Row>
           <div className="home-content">
             <Row>
               <Col>
-                <Link to="stores">
+                <a href="stores">
                   <div className="home-store-image-container">
                     <span className="home-store-label">View Stores </span>
                   </div>{" "}
-                </Link>
+                </a>
               </Col>
               <Col>
-                <Link to="shopping_list">
+                <a href="shopping_list">
                   <div className="home-list-image-container">
                     <span className="home-list-label">View Shopping Lists</span>
                   </div>
-                </Link>
+                </a>
               </Col>
               <Col>
                 <div className="home-search-box-container">

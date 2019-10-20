@@ -34,6 +34,11 @@ li {
   text-align: center;
   width: 100%;
 }
+.welcome-message form {
+  width: 200px;
+  margin: 0 auto;
+}
+
 .shopping-list-products {
   list-style: circle;
 }
@@ -42,6 +47,7 @@ li {
   padding-left: 15px;
   padding-right: 15px;
 }
+
 /* SHOPPING LIST */
 .shopping-list-heading {
   margin: 0 auto;
@@ -204,9 +210,9 @@ h1 {
     margin-left: -2px;
   }
   .home-image-cart {
-    min-width: 400px;
+    min-width: 395px;
     margin: 0 auto;
-    margin-left: -2px;
+    margin-left: -22px;
   }
   .home-store-image-container,
   .home-list-image-container,

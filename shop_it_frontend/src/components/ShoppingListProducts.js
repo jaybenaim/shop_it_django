@@ -51,11 +51,7 @@ class ShoppingListProducts extends Component {
         )
     );
 
-    return (
-      <div className="shopping-list-products">
-        <div>{productElements}</div>
-      </div>
-    );
+    return <td className="shopping-list-products">{productElements}</td>;
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Login extends Component {
   state = {
@@ -18,7 +18,10 @@ class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handleLogin(e, this.state)}>
+      <form
+        className="login-form"
+        onSubmit={e => this.props.handleLogin(e, this.state)}
+      >
         <h4>Log In</h4>
         <label htmlFor="username">Username</label>
         <input
@@ -39,6 +42,5 @@ class Login extends Component {
     );
   }
 }
- 
 
 export default Login;

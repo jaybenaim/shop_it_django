@@ -33,7 +33,10 @@ class ShoppingListShow extends Component {
     productIds.forEach(id => {
       Api.get(`products/${id}/`).then(res => {
         const { products } = this.state;
-        this.setState({ products: [...products, res.data] });
+        this.setState({
+          products: [...products, res.data],
+          isLoaded: !isLoaded
+        });
       });
     });
     this.setState({ isLoaded: !isLoaded });
@@ -96,20 +99,19 @@ class ShoppingListShow extends Component {
                 </span>
               </th>
             </tr>
-            <tr>
-              {products.length >= 1 && !isLoaded && (
-                <td>
-                  <ShoppingListProducts
-                    total={currentTotal}
-                    currentProducts={currentProducts}
-                    products={products}
-                    updateTotal={this.updateTotal}
-                  />
-                </td>
-              )}
-            </tr>
+            {products.length >= 1 && !isLoaded && (
+              <tr>
+                <ShoppingListProducts
+                  total={currentTotal}
+                  currentProducts={currentProducts}
+                  products={products}
+                  updateTotal={this.updateTotal}
+                />
+              </tr>
+            )}
           </tbody>
         </Table>
+
         {showProductForm && (
           <AddProductForm
             getShoppingLists={getShoppingLists}

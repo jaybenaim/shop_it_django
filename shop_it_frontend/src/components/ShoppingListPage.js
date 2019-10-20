@@ -77,7 +77,7 @@ class ShoppingListPage extends Component {
                 <h2 className="shopping-list-heading">Your Shopping Lists</h2>
                 <Col xs={12} md={12} lg={6}></Col>
                 <Col xs={12} md={12} lg={6}>
-                  {isLoaded && (
+                  {isLoaded ? (
                     <ShoppingList
                       shoppingLists={shoppingLists}
                       currentShoppingList={currentShoppingList}
@@ -85,6 +85,8 @@ class ShoppingListPage extends Component {
                       products={currentProducts}
                       getShoppingLists={this.getShoppingLists}
                     />
+                  ) : (
+                    <div>Loading...</div>
                   )}
                 </Col>
                 <Col xs={12} md={12} lg={6}></Col>

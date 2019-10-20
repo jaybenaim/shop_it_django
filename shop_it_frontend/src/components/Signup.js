@@ -1,4 +1,4 @@
-import React from 'react'; 
+import React from "react";
 
 class Signup extends React.Component {
   state = {
@@ -18,7 +18,10 @@ class Signup extends React.Component {
 
   render() {
     return (
-      <form onSubmit={e => this.props.handleSignup(e, this.state)}>
+      <form
+        className="signup-form"
+        onSubmit={e => this.props.handleSignup(e, this.state)}
+      >
         <h4>Sign Up</h4>
         <label htmlFor="username">Username</label>
         <input
@@ -39,5 +42,5 @@ class Signup extends React.Component {
     );
   }
 }
- 
+
 export default Signup;
