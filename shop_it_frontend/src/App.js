@@ -23,6 +23,9 @@ function App() {
             <Link to="stores"> Stores </Link>
           </Nav.Item>
           <Nav.Item>
+            <Link to="search"> Suggestions </Link>
+          </Nav.Item>
+          <Nav.Item>
             <Register />
           </Nav.Item>
         </Nav>

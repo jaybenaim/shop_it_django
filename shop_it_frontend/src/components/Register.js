@@ -113,10 +113,15 @@ class Register extends Component {
         </span>
         <span className="welcome-message">{displayedForm && <>{form}</>}</span>
         <div className="login-welcome">
-          {this.state.loggedIn
-            ? `Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
-                localStorage.username.slice(1)}`
-            : "Please Log In"}
+          {this.state.loggedIn ? (
+            <div className="login-username">
+              {" "}
+              {`Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
+                localStorage.username.slice(1)}`}
+            </div>
+          ) : (
+            "Please Log In"
+          )}
         </div>
       </div>
     );
