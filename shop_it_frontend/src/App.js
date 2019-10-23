@@ -2,11 +2,12 @@ import React from "react";
 import "./App.css";
 import Home from "./components/Home";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ShoppingListPage from "./components/ShoppingListPage.js";
+import ShoppingListPage from "./components/ShoppingListPage";
 import Store from "./components/Store";
 import Register from "./components/Register";
 import { Container, Nav } from "react-bootstrap";
 import Test from "./components/Test";
+
 function App() {
   return (
     <Container fluid={true} className="App container">
