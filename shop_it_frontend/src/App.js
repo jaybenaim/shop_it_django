@@ -6,7 +6,7 @@ import ShoppingListPage from "./components/ShoppingListPage";
 import Store from "./components/Store";
 import Register from "./components/Register";
 import { Container, Nav } from "react-bootstrap";
-import Test from "./components/Test";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   return (
@@ -38,8 +38,8 @@ function App() {
           <Route exact path="/stores">
             <Store />
           </Route>
-          <Route exact path="/test">
-            <Test />
+          <Route exact path="/search">
+            <SearchPage />
           </Route>
         </Switch>
       </Router>
