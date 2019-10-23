@@ -6,6 +6,7 @@ import ShoppingListPage from "./components/ShoppingListPage.js";
 import Store from "./components/Store";
 import Register from "./components/Register";
 import { Container, Nav } from "react-bootstrap";
+import Test from "./components/Test";
 function App() {
   return (
     <Container fluid={true} className="App container">
@@ -19,6 +20,9 @@ function App() {
           </Nav.Item>
           <Nav.Item>
             <Link to="stores"> Stores </Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Link to="test"> Test </Link>
           </Nav.Item>
           <Nav.Item>
             <Register />
@@ -35,6 +39,9 @@ function App() {
           {/*  if admin  */}
           <Route exact path="/stores">
             <Store />
+          </Route>
+          <Route exact path="/test">
+            <Test />
           </Route>
         </Switch>
       </Router>

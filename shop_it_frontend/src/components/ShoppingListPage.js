@@ -5,6 +5,7 @@ import { Container, Button, Row, Col } from "react-bootstrap";
 import ShoppingList from "./ShoppingList";
 import ShoppingListProductShow from "./ShoppingListProductShow";
 import ShoppingListShow from "./ShoppingListShow";
+import ReactLoading from "react-loading";
 class ShoppingListPage extends Component {
   state = {
     shoppingLists: null,
@@ -86,7 +87,12 @@ class ShoppingListPage extends Component {
                       getShoppingLists={this.getShoppingLists}
                     />
                   ) : (
-                    <div>Loading...</div>
+                    <ReactLoading
+                      type="spokes"
+                      color="#007bff"
+                      height={667}
+                      width={375}
+                    />
                   )}
                 </Col>
                 <Col xs={12} md={12} lg={6}></Col>

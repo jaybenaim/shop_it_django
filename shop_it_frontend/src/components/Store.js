@@ -4,6 +4,8 @@ import Api from "../apis/api";
 import StoreShow from "./StoreShow";
 import StoreForm from "./StoreForm";
 import StorePage from "./StorePage";
+import ReactLoading from "react-loading";
+
 class Store extends Component {
   state = {
     stores: [],
@@ -102,7 +104,16 @@ class Store extends Component {
               <Col></Col>
             </Row>
 
-            {this.allStores()}
+            {!showStore ? (
+              this.allStores()
+            ) : (
+              <ReactLoading
+                type="spokes"
+                color="#007bff"
+                height={667}
+                width={375}
+              />
+            )}
 
             <Row>
               <Col> </Col>
