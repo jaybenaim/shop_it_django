@@ -76,8 +76,8 @@ class ShoppingListPage extends Component {
             <Container className="shopping-list-container">
               <Row>
                 <h2 className="shopping-list-heading">Your Shopping Lists</h2>
-                <Col xs={12} md={12} lg={6}></Col>
-                <Col xs={12} md={12} lg={6}>
+
+                <Col lg={12}>
                   {isLoaded ? (
                     <ShoppingList
                       shoppingLists={shoppingLists}
@@ -95,7 +95,6 @@ class ShoppingListPage extends Component {
                     />
                   )}
                 </Col>
-                <Col xs={12} md={12} lg={6}></Col>
               </Row>
 
               <Button onClick={this.handleShowShoppingListForm}>

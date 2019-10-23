@@ -69,14 +69,21 @@ class ShoppingListRow extends Component {
     return (
       <tr>
         <td>
-          <p onClick={() => handleShowShoppingList(shoppingList, products)}>
+          <p
+            className="list-name"
+            onClick={() => handleShowShoppingList(shoppingList, products)}
+          >
             {name}
             <br />
-            {this.formatDate(date)}
           </p>
-          <Button variant="danger" onClick={this.destroyShoppingList}>
+          <Button
+            className="delete-list-button"
+            variant="danger"
+            onClick={this.destroyShoppingList}
+          >
             Delete
           </Button>
+          <span className="list-date"> {this.formatDate(date)}</span>
         </td>
 
         <td>

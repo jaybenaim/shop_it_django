@@ -76,6 +76,27 @@ li {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+
+td p {
+  cursor: pointer;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.list-name {
+  font-size: 22px;
+  font-weight: 700;
+  float: left;
+}
+.list-date {
+  float: right;
+  margin-right: 20px;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.delete-list-button {
+  float: right;
+}
 /* New List */
 .new-list-form {
   display: block;
@@ -100,8 +121,19 @@ li {
 .add-item-button:hover {
   cursor: pointer;
 }
-td p {
-  cursor: pointer;
+.add-to-cart-button {
+  margin-top: -90px;
+  margin-right: 4px;
+  float: right;
+}
+.product-name h2,
+.product-name p {
+  margin-left: 20px;
+}
+[value="added"] {
+  margin-left: 4px;
+  height: 20px;
+  width: 20px;
 }
 /* ADD PRODUCT FROM */
 

@@ -83,7 +83,7 @@ class ShoppingListShow extends Component {
           <tbody>
             <tr>
               <td>
-                <strong>{name}</strong>{" "}
+                <span>{name}</span>{" "}
               </td>
               <td>$ {initialBudget}</td>
               <td className={totalClass}>$ {currentTotal}</td>

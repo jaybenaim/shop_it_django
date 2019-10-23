@@ -6,14 +6,15 @@ class ShoppingListProductShow extends Component {
     const { name, price } = currentProducts;
     return (
       <div>
-        <h2>{name.toUpperCase()}</h2>
-        <p>$ {price}</p>
-        <table>
-          <td>
-            <label htmlFor="added">Added to Cart</label>&nbsp;
-            <input type="checkbox" value="added" />
-          </td>
-        </table>
+        <div className="product-name">
+          <h2>{name.toUpperCase()}</h2>
+          <p>$ {price}</p>
+        </div>
+        <span className="add-to-cart-button">
+          <label htmlFor="added">Added to Cart</label>&nbsp;
+          <input type="checkbox" value="added" />
+        </span>
+        <hr />
       </div>
     );
   }
