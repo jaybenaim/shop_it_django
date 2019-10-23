@@ -23,9 +23,6 @@ function App() {
             <Link to="stores"> Stores </Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="test"> Test </Link>
-          </Nav.Item>
-          <Nav.Item>
             <Register />
           </Nav.Item>
         </Nav>

@@ -24,9 +24,13 @@ li {
 }
 .logout-button,
 .login-button,
-.logout-button {
+.signup-button {
   height: 40px;
   width: 80px;
+  margin-right: 20px;
+}
+
+.signup-button {
 }
 .login-welcome {
   margin-left: 10px;
