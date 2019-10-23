@@ -29,8 +29,19 @@ li {
   width: 80px;
   margin-right: 20px;
 }
-
-.signup-button {
+.login-username-label,
+.login-password-label {
+  float: left;
+  margin-left: 6px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+}
+.login-form {
+  display: block;
+  text-align: center;
+}
+.login-submit {
+  margin-top: 10px;
 }
 .login-welcome {
   margin-left: 10px;
@@ -57,6 +68,22 @@ li {
   margin: 0 auto;
   margin-bottom: 20px;
 }
+/* New List */
+.new-list-form {
+  display: block;
+  padding: 0 30%;
+}
+.new-list-submit {
+  float: right;
+}
+.budget-input {
+  width: 400px;
+}
+.list-name-label,
+.list-budget-label {
+  font-weight: 700;
+}
+
 /* SHOPPING LIST - PRODUCTS */
 
 .add-item-button {

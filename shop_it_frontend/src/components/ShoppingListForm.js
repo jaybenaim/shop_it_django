@@ -39,9 +39,9 @@ class ShoppingListForm extends Component {
   render() {
     console.log(localStorage.id);
     return (
-      <Form>
+      <Form className="new-list-form">
         <Form.Group controlId="formBasicEmail">
-          <Form.Label>Name of List</Form.Label>
+          <Form.Label className="list-name-label">Name of List</Form.Label>
           <Form.Control
             type="text"
             placeholder="Enter Name"
@@ -50,15 +50,21 @@ class ShoppingListForm extends Component {
         </Form.Group>
 
         <Form.Group controlId="formBasicPassword">
-          <Form.Label>Budget</Form.Label>
+          <Form.Label className="list-budget-label">Budget</Form.Label>
           <Form.Control
+            className="budget-input"
             type="number"
             placeholder="Enter your budget"
             ref={this.budgetRef}
           />
         </Form.Group>
         <Button onClick={() => this.goBack()}>Back</Button>
-        <Button variant="primary" type="submit" onClick={this.handleSubmit}>
+        <Button
+          className="new-list-submit"
+          variant="primary"
+          type="submit"
+          onClick={this.handleSubmit}
+        >
           Submit
         </Button>
       </Form>

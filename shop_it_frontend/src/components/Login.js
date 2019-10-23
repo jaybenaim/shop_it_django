@@ -23,21 +23,25 @@ class Login extends Component {
         onSubmit={e => this.props.handleLogin(e, this.state)}
       >
         <h4>Log In</h4>
-        <label htmlFor="username">Username</label>
+        <label className="login-username-label" htmlFor="username">
+          Username
+        </label>
         <input
           type="text"
           name="username"
           value={this.state.username}
           onChange={this.handleChange}
         />
-        <label htmlFor="password">Password</label>
+        <label className="login-password-label" htmlFor="password">
+          Password
+        </label>
         <input
           type="password"
           name="password"
           value={this.state.password}
           onChange={this.handleChange}
         />
-        <input type="submit" />
+        <input className="login-submit" type="submit" />
       </form>
     );
   }
