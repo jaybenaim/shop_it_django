@@ -6,6 +6,9 @@ a:hover {
 html {
   background-color: white;
 }
+.loading-icon {
+  margin: 0 auto;
+}
 /* NAVBAR */
 
 li {
@@ -310,22 +313,18 @@ td p {
     width: 100%;
     margin: 0 auto;
   }
-  .home-content {
-    padding: 0;
-    width: 400px;
-    margin-left: -2px;
-  }
+
   .home-image-cart {
-    min-width: 395px;
     margin: 0 auto;
-    margin-left: -22px;
     box-shadow: 2px 5px 24px -6px rgba(0, 0, 0, 0.75);
     border-radius: 10px;
+    min-width: 340px;
   }
+
   .home-store-image-container,
   .home-list-image-container,
   .home-search-icon {
-    min-width: 400px;
+    min-width: 300px;
     height: 400px;
     background-size: cover;
     box-shadow: 2px 5px 24px -6px rgba(0, 0, 0, 0.75);
@@ -335,16 +334,30 @@ td p {
     font-size: 50px;
     margin-bottom: 0;
   }
-  .home-list-label {
-    color: white;
+  .home-list-label,
+  .home-store-label,
+  .home-search-label {
+    color: black;
     text-decoration: none;
     font-size: 38px;
     margin-left: 5px;
+    text-align: center;
   }
-  .home-store-label {
-    color: white;
-    text-decoration: none;
-    font-size: 38px;
+  .home-search-icon {
+    margin: 0 auto;
+  }
+  .logout-button {
+    float: right;
+    margin-top: -15px;
+  }
+  .login-username {
     margin-left: 5px;
+    margin-top: -10px;
+    color: #007bff;
+  }
+  .welcome-header h1 {
+    text-align: center;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
   }
 }

@@ -10,7 +10,7 @@ class Home extends React.Component {
         <Container className="home-container">
           <Row>
             <div className="welcome-header">
-              <h1>Welcome To Shop It</h1>
+              <h1>Shop It</h1>
             </div>
           </Row>
           <Row>

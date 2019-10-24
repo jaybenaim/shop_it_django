@@ -1,5 +1,5 @@
 import React from "react";
-import edamam from "../apis/edamam";
+// import edamam from "../apis/edamam";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import Suggestions from "./Suggestions";

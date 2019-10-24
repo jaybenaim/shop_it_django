@@ -88,10 +88,11 @@ class ShoppingListPage extends Component {
                     />
                   ) : (
                     <ReactLoading
-                      type="spokes"
+                      className="loading-icon"
+                      type="bubbles"
                       color="#007bff"
-                      height={667}
-                      width={375}
+                      height={367}
+                      width={175}
                     />
                   )}
                 </Col>
