@@ -375,4 +375,11 @@ td p {
   .shopping-list-products {
     min-width: 300px;
   }
+  /* Store Page */
+  .store-main-heading {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 3em;
+  }
 }

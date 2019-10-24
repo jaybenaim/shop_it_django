@@ -32,7 +32,6 @@ class StoreShow extends Component {
         </Col>
         <Col className="store-aisles">{aisles.length}</Col>
         <Col className="store-aisles">4</Col>
-        <Col className="store-aisles">4</Col>
         <Col className="delete-store">
           <Button variant="outline-danger" onClick={this.destroyStore}>
             X

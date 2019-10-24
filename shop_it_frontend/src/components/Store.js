@@ -81,7 +81,7 @@ class Store extends Component {
         {!showStore ? (
           <>
             <div className="store-main-heading">
-              <h2>My Stores</h2>
+              <p>My Stores</p>
             </div>
 
             <Row className="store-col-header">
@@ -94,9 +94,6 @@ class Store extends Component {
 
               <Col>
                 <strong>Aisles</strong>
-              </Col>
-              <Col>
-                <strong>Categories</strong>
               </Col>
               <Col>
                 <strong>Products</strong>
