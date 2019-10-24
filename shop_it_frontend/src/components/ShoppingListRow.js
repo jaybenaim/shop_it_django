@@ -78,10 +78,10 @@ class ShoppingListRow extends Component {
           </p>
           <Button
             className="delete-list-button"
-            variant="danger"
+            variant="outline-danger"
             onClick={this.destroyShoppingList}
           >
-            Delete
+            <span>X</span>
           </Button>
           <span className="list-date"> {this.formatDate(date)}</span>
         </td>

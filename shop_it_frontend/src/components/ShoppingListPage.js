@@ -98,7 +98,10 @@ class ShoppingListPage extends Component {
                 </Col>
               </Row>
 
-              <Button onClick={this.handleShowShoppingListForm}>
+              <Button
+                className="add-list-button"
+                onClick={this.handleShowShoppingListForm}
+              >
                 Click to add a new shopping list
               </Button>
 

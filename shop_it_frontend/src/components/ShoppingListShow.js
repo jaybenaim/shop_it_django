@@ -89,7 +89,7 @@ class ShoppingListShow extends Component {
               <td className={totalClass}>$ {currentTotal}</td>
             </tr>
             <tr>
-              <th colSpan="2" className="items-label">
+              <th colSpan="3" className="items-label">
                 Items
                 <span
                   className="add-item-button"

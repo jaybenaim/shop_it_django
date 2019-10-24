@@ -51,7 +51,11 @@ class ShoppingListProducts extends Component {
         )
     );
 
-    return <td className="shopping-list-products">{productElements}</td>;
+    return (
+      <td colSpan="3" className="shopping-list-products">
+        {productElements}
+      </td>
+    );
   }
 }
 
