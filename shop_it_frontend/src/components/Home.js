@@ -22,27 +22,28 @@ class Home extends React.Component {
           </Row>
           <Row>
             <Col>
-              <a href="stores">
+              <a href="/stores">
                 <span className="home-store-label">View Stores </span>
                 <div className="home-store-image-container"></div>{" "}
               </a>
             </Col>
             <Col>
-              <a href="shopping_list">
+              <a href="/shopping_list">
                 <span className="home-list-label">View Shopping Lists</span>
                 <div className="home-list-image-container"></div>
               </a>
             </Col>
             <Col>
               <div className="home-search-box-container">
-                <span className="home-search-label">Search</span>
-
-                <div className="home-search-icon">
+                <a href="/search">
+                  <span className="home-search-label">Search</span>
+                </a>
+                <a href="/search" className="home-search-icon">
                   <span className="search-icon-label">
                     Search for a product
                   </span>
                   <i className="fa fa-search"></i>
-                </div>
+                </a>
               </div>
             </Col>
           </Row>

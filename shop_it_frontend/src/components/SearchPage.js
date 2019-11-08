@@ -7,7 +7,8 @@ import Suggestions from "./Suggestions";
 class SearchPage extends React.Component {
   state = {
     suggestions: [],
-    searchResults: []
+    searchResults: [],
+    nextItems: false
   };
   searchRef = React.createRef();
 
@@ -31,7 +32,7 @@ class SearchPage extends React.Component {
   showSuggestions = () => {
     const { suggestions } = this.state;
     let suggestionElements = suggestions.map((suggestion, i) => {
-      while (i < 10) {
+      while (i < 20) {
         if (suggestions !== null) {
           return (
             <Suggestions key={i} showClass="show" suggestion={suggestion} />
@@ -41,6 +42,16 @@ class SearchPage extends React.Component {
     });
     return suggestionElements;
   };
+  //   nextItems = () => {
+  //     // this.setState({ suggestions: [] });
+  //     const { nextItems } = this.state;
+  //     this.showSuggestions(10, 20);
+  //   };
+  //   handleNextItem = () => {
+  //     const { nextItems } = this.state;
+  //     this.setState({ nextItems: !nextItems });
+  //     this.nextItems();
+  //   };
   render() {
     return (
       <div>
@@ -62,7 +73,14 @@ class SearchPage extends React.Component {
           </Button>
         </form>
         <div className="suggestion-box">
-          <ul>{this.showSuggestions()}</ul>
+          <ul>{this.showSuggestions(0, 10)}</ul>
+          {/* <Button
+            onClick={() => this.handleNextItem()}
+            variant="outline-primary"
+          >
+            More Related Items
+          </Button> */}
+          {/* <ul>{this.nextItems()}</ul> */}
         </div>
       </div>
     );
