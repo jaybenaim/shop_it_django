@@ -18,7 +18,7 @@
     "webpack": "^4.41.0"
   },
   "scripts": {
-    "start": "cd shop_it_frontend && react-scripts start",
+    "start": "cd shop_it_frontend && node index.js",
     "build": "cd shop_it_frontend && react-scripts build",
     "test": "cd shop_it_frontend && react-scripts test",
     "eject": "cd shop_it_frontend && react-scripts eject",
