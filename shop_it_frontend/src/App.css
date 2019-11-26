@@ -360,12 +360,13 @@ h1 {
 }
 
 @media (max-width: 520px) {
-  /* .home-container {
+  .home-container {
     background: url(./images/strawberry-smoothie-on-glass-jar-775032.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
-  } */
+    /* background-attachment: fixed; */
+    opacity: 0.99;
+  }
   .home-container:before {
     content: "";
     display: block;
@@ -382,10 +383,14 @@ h1 {
     -o-background-size: cover;
     background-size: cover;
   }
+  .navbar,
   h1 {
-    color: rgba(0, 0, 0, 0.75);
+    position: relative;
+    z-index: 2;
   }
-
+  .navbar {
+    opacity: 0.8;
+  }
   html {
     width: 100%;
   }
@@ -393,6 +398,7 @@ h1 {
     display: block;
     width: 100%;
     margin: 0 auto;
+    color: rgba(0, 0, 0, 0.75);
   }
 
   .home-image-cart {
