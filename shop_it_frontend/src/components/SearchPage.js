@@ -8,11 +8,12 @@ class SearchPage extends React.Component {
   state = {
     suggestions: [],
     searchResults: [],
-    nextItems: false
+    nextItems: false,
+    query: ""
   };
   searchRef = React.createRef();
 
-  getFoodData = () => {
+  getFoodData = prevQuery => {
     const query = this.searchRef.current.value;
     axios
       .get(
@@ -21,10 +22,16 @@ class SearchPage extends React.Component {
       .then(res => {
         let data = res.data;
         const suggestions = data.filter(d => {
-          if (d.food_description.includes(query)) {
+          if (
+            d.food_description.includes(query) ||
+            d.food_description.includes(prevQuery)
+          ) {
             return d.food_description;
           }
         });
+        // filter one
+
+        // filter two
         this.setState({ suggestions: suggestions });
       });
   };
@@ -52,7 +59,18 @@ class SearchPage extends React.Component {
   //     this.setState({ nextItems: !nextItems });
   //     this.nextItems();
   //   };
+  handleSearchQuery = event => {
+    let eventData = event.target.value;
+
+    this.setState({ query: eventData });
+
+    clearTimeout();
+    setTimeout(() => {
+      this.getFoodData(eventData);
+    }, 500);
+  };
   render() {
+    console.log(this.state.query);
     return (
       <div>
         <form className="search-form" method="GET">
@@ -62,6 +80,7 @@ class SearchPage extends React.Component {
             name="q"
             aria-label="Search through site content"
             ref={this.searchRef}
+            onChange={this.handleSearchQuery}
           ></input>
 
           <Button
@@ -73,7 +92,7 @@ class SearchPage extends React.Component {
           </Button>
         </form>
         <div className="suggestion-box">
-          <ul>{this.showSuggestions(0, 10)}</ul>
+          <ul>{this.showSuggestions()}</ul>
           {/* <Button
             onClick={() => this.handleNextItem()}
             variant="outline-primary"
