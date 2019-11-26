@@ -336,13 +336,24 @@ h1 {
     display: flex;
     justify-content: center;
   }
-  .nav {
+  .nav,
+  .navbar {
     background-color: rgba(0, 0, 0, 0.6);
+  }
+  .navar-brand {
+    color: #fff;
+  }
+  .login-username {
+    margin-left: 13%;
+    color: #fff;
   }
   /* Stores */
   .store-main-heading p {
     font-size: 2em;
     width: 230%;
+  }
+  .login-username {
+    margin-left: 10%;
   }
 }
 @media (max-width: 800px) {
@@ -524,4 +535,10 @@ h1 {
 .login-button:hover,
 .signup-button:hover {
   cursor: pointer;
+}
+@media (max-width: 450px) {
+  .new-list-form {
+    width: 100%;
+    padding: 0;
+  }
 }

@@ -1,6 +1,6 @@
 import React from "react";
 // import edamam from "../apis/edamam";
-import { Button } from "react-bootstrap";
+import { Button, Alert } from "react-bootstrap";
 import axios from "axios";
 import Suggestions from "./Suggestions";
 import RandomIngredient from "./randomIngredient";
@@ -12,6 +12,8 @@ class SearchPage extends React.Component {
     nextItems: false,
     resultsCategory: "",
     ingredients: [],
+    displayedForm: null,
+
     query: ""
   };
   searchRef = React.createRef();
@@ -24,6 +26,7 @@ class SearchPage extends React.Component {
       )
       .then(res => {
         let data = res.data;
+
         const suggestions = data.filter(d => {
           if (
             d.food_description.includes(query) ||
@@ -32,8 +35,18 @@ class SearchPage extends React.Component {
             return d.food_description;
           }
         });
+        if (!suggestions) this.displayForm("error");
         this.setState({ suggestions: suggestions });
+      })
+      .catch(err => {
+        console.log(err);
+        this.displayForm("error");
       });
+  };
+  displayForm = form => {
+    this.setState({
+      displayedForm: form
+    });
   };
   getRandomIngredients = () => {
     axios
@@ -70,7 +83,10 @@ class SearchPage extends React.Component {
           return (
             <Suggestions key={i} showClass="show" suggestion={suggestion} />
           );
+        } else {
+          this.displayForm("error");
         }
+        i++;
       }
     });
 
@@ -111,8 +127,14 @@ class SearchPage extends React.Component {
     }, 1000);
   };
   render() {
+    const { displayedForm } = this.state;
+    let alert;
+    if (displayedForm === "error") {
+      alert = <Alert variant="danger">Something Went Wrong, Try again.</Alert>;
+    }
     return (
       <div>
+        {alert}
         <form className="search-form" method="GET">
           <input
             type="search"

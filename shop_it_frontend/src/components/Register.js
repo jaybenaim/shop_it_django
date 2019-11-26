@@ -3,7 +3,7 @@ import Axios from "axios";
 import Login from "./Login";
 import Signup from "./Signup";
 import Api from "../apis/api";
-import { Nav } from "react-bootstrap";
+import { Nav, Alert } from "react-bootstrap";
 
 class Register extends Component {
   state = {
@@ -14,6 +14,7 @@ class Register extends Component {
 
   handleSignup = (e, data) => {
     e.preventDefault();
+
     Api.post("users/", {
       username: data.username,
       password: data.password
@@ -22,12 +23,16 @@ class Register extends Component {
         localStorage.token = res.data.token;
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;
-        console.log(res.statusText);
+
         this.displayForm("");
-        this.setState({ loggedIn: true });
+
+        this.setState({ loggedIn: !this.state.loggedIn });
       })
       .catch(err => {
-        console.log(err);
+        if (err.response) {
+          const status = String(err.response.status || 500);
+          this.displayForm(status);
+        }
       });
   };
 
@@ -42,12 +47,11 @@ class Register extends Component {
         localStorage.token = res.data.token;
         localStorage.id = res.data.id;
         localStorage.username = res.data.username;
-        console.log(res.statusText);
         this.displayForm("");
         this.setState({ loggedIn: true });
       })
       .catch(err => {
-        console.log(err);
+        this.displayForm("error");
       });
   };
 
@@ -96,6 +100,7 @@ class Register extends Component {
   render() {
     const { displayedForm } = this.state;
     let form;
+    let alert;
     switch (this.state.displayedForm) {
       case "login":
         form = <Login handleLogin={this.handleLogin} />;
@@ -103,11 +108,26 @@ class Register extends Component {
       case "signup":
         form = <Signup handleSignup={this.handleSignup} />;
         break;
+      case "400":
+        alert = (
+          <Alert variant="danger">
+            Something Went Wrong, Try logging in again, or refreshing the page.
+          </Alert>
+        );
+      case "201":
+        alert = <Alert variant="danger">That username already exists.</Alert>;
+      case "500":
+        alert = (
+          <Alert variant="danger">
+            Please Refresh the page if you did not get signed in automatically.
+          </Alert>
+        );
       default:
         form = null;
     }
     return (
       <div>
+        {alert}
         <span className="logout-button-container">
           {this.state.loggedIn ? this.loggedInNav : this.loggedOutNav}
         </span>
