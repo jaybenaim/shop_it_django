@@ -366,6 +366,22 @@ h1 {
     background-repeat: no-repeat;
     background-attachment: fixed;
   }
+  .home-container:before {
+    content: "";
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    background: url(./images/strawberry-smoothie-on-glass-jar-775032.jpg)
+      no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
   h1 {
     color: rgba(0, 0, 0, 0.75);
   }
