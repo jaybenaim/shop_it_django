@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { BrowserRouter as a } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 class Home extends React.Component {
   state = {};
@@ -22,22 +22,22 @@ class Home extends React.Component {
           </Row>
           <Row>
             <Col>
-              <a href="/stores">
+              <Link to="/stores">
                 <span className="home-store-label">View Stores </span>
                 <div className="home-store-image-container"></div>{" "}
-              </a>
+              </Link>
             </Col>
             <Col>
-              <a href="/shopping_list">
+              <Link to="/shopping_list">
                 <span className="home-list-label">View Shopping Lists</span>
                 <div className="home-list-image-container"></div>
-              </a>
+              </Link>
             </Col>
             <Col>
               <div className="home-search-box-container">
-                <a href="/search">
+                <Link to="/search">
                   <span className="home-search-label">Search</span>
-                </a>
+                </Link>
                 <a href="/search" className="home-search-icon">
                   <span className="search-icon-label">
                     Search for a product
