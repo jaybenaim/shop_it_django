@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/shop_it_django/static/css/main.78c5f8dc.chunk.css",
+    "main.css": "/shop_it_django/static/css/main.22ce7aa9.chunk.css",
     "main.js": "/shop_it_django/static/js/main.6fbbf424.chunk.js",
     "main.js.map": "/shop_it_django/static/js/main.6fbbf424.chunk.js.map",
     "runtime-main.js": "/shop_it_django/static/js/runtime-main.3446a8d1.js",
@@ -9,17 +9,17 @@
     "static/js/2.3fbf1298.chunk.js": "/shop_it_django/static/js/2.3fbf1298.chunk.js",
     "static/js/2.3fbf1298.chunk.js.map": "/shop_it_django/static/js/2.3fbf1298.chunk.js.map",
     "index.html": "/shop_it_django/index.html",
-    "precache-manifest.c43443807bfa9ba95bea2878bf497ff9.js": "/shop_it_django/precache-manifest.c43443807bfa9ba95bea2878bf497ff9.js",
+    "precache-manifest.d738c95778116eae2dbcb05df11c919f.js": "/shop_it_django/precache-manifest.d738c95778116eae2dbcb05df11c919f.js",
     "service-worker.js": "/shop_it_django/service-worker.js",
     "static/css/2.0624914a.chunk.css.map": "/shop_it_django/static/css/2.0624914a.chunk.css.map",
-    "static/css/main.78c5f8dc.chunk.css.map": "/shop_it_django/static/css/main.78c5f8dc.chunk.css.map",
+    "static/css/main.22ce7aa9.chunk.css.map": "/shop_it_django/static/css/main.22ce7aa9.chunk.css.map",
     "static/media/App.css": "/shop_it_django/static/media/strawberry-smoothie-on-glass-jar-775032.97f3446b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3446a8d1.js",
     "static/css/2.0624914a.chunk.css",
     "static/js/2.3fbf1298.chunk.js",
-    "static/css/main.78c5f8dc.chunk.css",
+    "static/css/main.22ce7aa9.chunk.css",
     "static/js/main.6fbbf424.chunk.js"
   ]
 }
