@@ -14,13 +14,13 @@ function App() {
             <Link to="/shop_it_django">Home</Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="shopping_list"> Shopping List</Link>
+            <Link to="/shopping_list"> Shopping List</Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="stores"> Stores </Link>
+            <Link to="/stores"> Stores </Link>
           </Nav.Item>
           <Nav.Item>
-            <Link to="search"> Suggestions </Link>
+            <Link to="/search"> Suggestions </Link>
           </Nav.Item>
           <Nav.Item>
             <Register />
