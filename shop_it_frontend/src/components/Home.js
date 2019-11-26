@@ -35,15 +35,13 @@ class Home extends React.Component {
             </Col>
             <Col>
               <div className="home-search-box-container">
-                <Link to="/search">
-                  <span className="home-search-label">Search</span>
-                </Link>
-                <a href="/search" className="home-search-icon">
+                <span className="home-search-label">Search</span>
+                <Link to="/search" className="home-search-icon">
                   <span className="search-icon-label">
                     Search for a product
                   </span>
                   <i className="fa fa-search"></i>
-                </a>
+                </Link>
               </div>
             </Col>
           </Row>
