@@ -68,15 +68,12 @@ class Register extends Component {
   loggedOutNav = (
     <div className="center">
       <ul>
-        <li
-          className="btn btn-primary login-button"
-          onClick={() => this.displayForm("login")}
-        >
+        <li className=" login-button" onClick={() => this.displayForm("login")}>
           Login
         </li>
 
         <li
-          className="btn btn-primary signup-button"
+          className=" signup-button"
           onClick={() => this.displayForm("signup")}
         >
           Signup

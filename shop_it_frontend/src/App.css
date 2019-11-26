@@ -413,4 +413,26 @@ td p {
     height: 80px;
     width: 100px;
   }
+  .login-button {
+    float: right;
+    color: #007bff;
+  }
+  .signup-button {
+    float: right;
+    margin-top: -20px;
+    color: #007bff;
+  }
+}
+.login-button {
+  float: right;
+  color: #007bff;
+}
+.signup-button {
+  float: right;
+  margin-top: -20px;
+  color: #007bff;
+}
+.login-button:hover,
+.signup-button:hover {
+  cursor: pointer;
 }
