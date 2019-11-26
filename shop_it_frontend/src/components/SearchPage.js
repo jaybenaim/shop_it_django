@@ -121,6 +121,7 @@ class SearchPage extends React.Component {
             aria-label="Search through site content"
             ref={this.searchRef}
             onChange={this.handleSearchQuery}
+            placeholder="Chicken..."
           ></input>
           <div className="search-button-container">
             <Button

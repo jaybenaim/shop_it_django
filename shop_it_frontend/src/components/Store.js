@@ -83,7 +83,6 @@ class Store extends Component {
             <div className="store-main-heading">
               <p>My Stores</p>
             </div>
-
             <Row className="store-col-header">
               <Col>
                 <strong>Address</strong>

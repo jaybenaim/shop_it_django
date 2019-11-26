@@ -3,6 +3,7 @@ import Axios from "axios";
 import Login from "./Login";
 import Signup from "./Signup";
 import Api from "../apis/api";
+import { Nav } from "react-bootstrap";
 
 class Register extends Component {
   state = {
@@ -66,28 +67,30 @@ class Register extends Component {
   };
 
   loggedOutNav = (
-    <div className="center">
-      <ul>
-        <li className=" login-button" onClick={() => this.displayForm("login")}>
-          Login
-        </li>
-
-        <li
-          className=" signup-button"
-          onClick={() => this.displayForm("signup")}
-        >
-          Signup
-        </li>
-      </ul>
+    <div className="login-container">
+      <Nav.Link
+        className="login-button"
+        onClick={() => this.displayForm("login")}
+      >
+        Login
+      </Nav.Link>
+      <Nav.Link
+        eventKey={2}
+        className="signup-button"
+        onClick={() => this.displayForm("signup")}
+      >
+        Sign up
+      </Nav.Link>
     </div>
   );
   loggedInNav = (
-    <button
-      className="btn btn-outline-primary logout-button"
+    <Nav.Link
+      className="logout-button"
+      eventKey={3}
       onClick={this.handleLogout}
     >
       Logout
-    </button>
+    </Nav.Link>
   );
 
   render() {
