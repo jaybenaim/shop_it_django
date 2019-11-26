@@ -31,8 +31,7 @@ class Suggestions extends Component {
   // };
 
   render() {
-    const { showClass } = this.props;
-    const { food_description: suggestion } = this.props.suggestion;
+    const { suggestion, showClass } = this.props;
     return (
       <li className={showClass}>
         {suggestion}

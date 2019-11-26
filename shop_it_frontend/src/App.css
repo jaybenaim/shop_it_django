@@ -276,6 +276,18 @@ td p {
 .search-button {
   margin-left: 40px;
 }
+.search-button-container {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+}
+.search-button-container button {
+  margin-left: 10px;
+}
+/* .random-button {
+  display: flex;
+  justify-content: center;
+} */
 .hide {
   display: none;
 }
