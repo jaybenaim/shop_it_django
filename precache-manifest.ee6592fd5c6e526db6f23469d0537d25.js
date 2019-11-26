@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "780c9e1924afdd1d52608ff0f3b5e0d3",
+    "revision": "b11e08f7a9b2c2150c7aa9d47a1c6d41",
     "url": "/shop_it_django/index.html"
   },
   {
-    "revision": "468900143aa7c67f0f9d",
+    "revision": "34a646234fc2f4bb2d82",
     "url": "/shop_it_django/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "9851e1233cc53bfb2ebb",
-    "url": "/shop_it_django/static/css/main.03e1936c.chunk.css"
+    "revision": "37eb21ab91baea695152",
+    "url": "/shop_it_django/static/css/main.0c965930.chunk.css"
   },
   {
-    "revision": "468900143aa7c67f0f9d",
-    "url": "/shop_it_django/static/js/2.217a11f4.chunk.js"
+    "revision": "34a646234fc2f4bb2d82",
+    "url": "/shop_it_django/static/js/2.3fbf1298.chunk.js"
   },
   {
-    "revision": "9851e1233cc53bfb2ebb",
-    "url": "/shop_it_django/static/js/main.45339b3d.chunk.js"
+    "revision": "37eb21ab91baea695152",
+    "url": "/shop_it_django/static/js/main.6fbbf424.chunk.js"
   },
   {
     "revision": "a73b8088093e742bbfd4",
@@ -34,5 +34,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "1a76b95bbad78c4a605db5fa99a74482",
     "url": "/shop_it_django/static/media/store.1a76b95b.jpg"
+  },
+  {
+    "revision": "97f3446b87499023f927637f2c296595",
+    "url": "/shop_it_django/static/media/strawberry-smoothie-on-glass-jar-775032.97f3446b.jpg"
   }
 ]);
