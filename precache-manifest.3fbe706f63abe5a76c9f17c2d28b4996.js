@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d04fe414750bf5b9fdc46c706ab30731",
+    "revision": "9881d71d799281cc1f4475c6c83a4602",
     "url": "/shop_it_django/index.html"
   },
   {
-    "revision": "573d9e497c45a04eaec4",
+    "revision": "12d9cf046ecd05a6964b",
     "url": "/shop_it_django/static/css/2.0624914a.chunk.css"
   },
   {
-    "revision": "b9098a6eec84b3eefa6e",
-    "url": "/shop_it_django/static/css/main.511e3f21.chunk.css"
+    "revision": "f0485230ff0dd3e7bbb6",
+    "url": "/shop_it_django/static/css/main.7fad1e39.chunk.css"
   },
   {
-    "revision": "573d9e497c45a04eaec4",
-    "url": "/shop_it_django/static/js/2.8007d6a6.chunk.js"
+    "revision": "12d9cf046ecd05a6964b",
+    "url": "/shop_it_django/static/js/2.e4baf6a3.chunk.js"
   },
   {
-    "revision": "b9098a6eec84b3eefa6e",
-    "url": "/shop_it_django/static/js/main.734582c6.chunk.js"
+    "revision": "f0485230ff0dd3e7bbb6",
+    "url": "/shop_it_django/static/js/main.78c22790.chunk.js"
   },
   {
     "revision": "a73b8088093e742bbfd4",
