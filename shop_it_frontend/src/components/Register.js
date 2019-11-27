@@ -4,6 +4,7 @@ import Login from "./Login";
 import Signup from "./Signup";
 import Api from "../apis/api";
 import { Nav, Alert } from "react-bootstrap";
+import { bigIntLiteral } from "@babel/types";
 
 class Register extends Component {
   state = {
@@ -79,7 +80,6 @@ class Register extends Component {
         Login
       </Nav.Link>
       <Nav.Link
-        eventKey={2}
         className="signup-button"
         onClick={() => this.displayForm("signup")}
       >
@@ -88,11 +88,7 @@ class Register extends Component {
     </div>
   );
   loggedInNav = (
-    <Nav.Link
-      className="logout-button"
-      eventKey={3}
-      onClick={this.handleLogout}
-    >
+    <Nav.Link className="logout-button" onClick={this.handleLogout}>
       Logout
     </Nav.Link>
   );
@@ -101,7 +97,7 @@ class Register extends Component {
     const { displayedForm } = this.state;
     let form;
     let alert;
-    switch (this.state.displayedForm) {
+    switch (displayedForm) {
       case "login":
         form = <Login handleLogin={this.handleLogin} />;
         break;
@@ -114,14 +110,17 @@ class Register extends Component {
             Something Went Wrong, Try logging in again, or refreshing the page.
           </Alert>
         );
+        break;
       case "201":
         alert = <Alert variant="danger">That username already exists.</Alert>;
+        break;
       case "500":
         alert = (
           <Alert variant="danger">
             Please Refresh the page if you did not get signed in automatically.
           </Alert>
         );
+        break;
       default:
         form = null;
     }

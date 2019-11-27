@@ -560,4 +560,11 @@ h1 {
   a:hover {
     color: rgba(255, 255, 255, 0.8) !important;
   }
+  .signup-form,
+  .signup-form input:last-child {
+    color: rgba(255, 255, 255, 0.8);
+  }
+  .alert {
+    width: 75%;
+  }
 }
