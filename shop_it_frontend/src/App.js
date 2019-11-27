@@ -25,12 +25,16 @@ function App() {
             id="responsive-navbar-nav"
             className="navbar navbar-dark bg-dark"
           >
-            <Nav className="mr-auto" bg="dark" variant="dark">
-              <Nav.Link href="/shopping_list"> Shopping List</Nav.Link>
-
-              <Nav.Link href="/stores"> Stores </Nav.Link>
-
-              <Nav.Link href="/search"> Suggestions </Nav.Link>
+            <Nav className="mr-auto collapse-links" bg="dark" variant="dark">
+              <Link className="nav-link" to="/shopping_list">
+                Shopping List
+              </Link>
+              <Link className="nav-link" to="/stores">
+                Stores
+              </Link>
+              <Link className="nav-link" to="/search">
+                Shopping List
+              </Link>
             </Nav>
             <Nav>
               <Nav.Item>

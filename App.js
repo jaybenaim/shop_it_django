@@ -27,7 +27,9 @@ function App() {
           >
             <Nav className="mr-auto" bg="dark" variant="dark">
               <Nav.Link href="/shopping_list"> Shopping List</Nav.Link>
-
+              <Link to="/shopping_list">Shopping List</Link>
+              <Link to="/stores">Stores</Link>
+              <Link to="/search">Shopping List</Link>
               <Nav.Link href="/stores"> Stores </Nav.Link>
 
               <Nav.Link href="/search"> Suggestions </Nav.Link>

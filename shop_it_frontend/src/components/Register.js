@@ -136,8 +136,9 @@ class Register extends Component {
           {this.state.loggedIn ? (
             <div className="login-username">
               {" "}
-              {`Hello, ${localStorage.username.slice(0, 1).toUpperCase() +
-                localStorage.username.slice(1)}`}
+              {`Signed in as, ${localStorage.username
+                .slice(0, 1)
+                .toUpperCase() + localStorage.username.slice(1)}`}
             </div>
           ) : (
             "Please Log In"

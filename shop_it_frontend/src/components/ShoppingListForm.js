@@ -58,10 +58,12 @@ class ShoppingListForm extends Component {
             ref={this.budgetRef}
           />
         </Form.Group>
-        <Button onClick={() => this.goBack()}>Back</Button>
+        <Button variant="outline-primary" onClick={() => this.goBack()}>
+          Back
+        </Button>
         <Button
           className="new-list-submit"
-          variant="primary"
+          variant="outline-primary"
           type="submit"
           onClick={this.handleSubmit}
         >
