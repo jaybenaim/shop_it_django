@@ -33,7 +33,7 @@ function App() {
                 Stores
               </Link>
               <Link className="nav-link" to="/search">
-                Shopping List
+                Suggestions
               </Link>
             </Nav>
             <Nav>
