@@ -10,9 +10,7 @@ class Home extends React.Component {
         <Container fluid={true}>
           <div className="home-container"></div>
           <Row>
-            <div className="welcome-header">
-              <h1>Shop It</h1>
-            </div>
+            <div className="welcome-header"></div>
           </Row>
           <Row>
             <Col className="home-image-container">
