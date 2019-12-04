@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/shop_it_django/static/css/main.8acf0f95.chunk.css",
-    "main.js": "/shop_it_django/static/js/main.49028898.chunk.js",
-    "main.js.map": "/shop_it_django/static/js/main.49028898.chunk.js.map",
+    "main.css": "/shop_it_django/static/css/main.d1765159.chunk.css",
+    "main.js": "/shop_it_django/static/js/main.fa238e78.chunk.js",
+    "main.js.map": "/shop_it_django/static/js/main.fa238e78.chunk.js.map",
     "runtime-main.js": "/shop_it_django/static/js/runtime-main.3446a8d1.js",
     "runtime-main.js.map": "/shop_it_django/static/js/runtime-main.3446a8d1.js.map",
     "static/css/2.0624914a.chunk.css": "/shop_it_django/static/css/2.0624914a.chunk.css",
     "static/js/2.4b0518d4.chunk.js": "/shop_it_django/static/js/2.4b0518d4.chunk.js",
     "static/js/2.4b0518d4.chunk.js.map": "/shop_it_django/static/js/2.4b0518d4.chunk.js.map",
     "index.html": "/shop_it_django/index.html",
-    "precache-manifest.de1e58b1330b57ed923c40579f4906bc.js": "/shop_it_django/precache-manifest.de1e58b1330b57ed923c40579f4906bc.js",
+    "precache-manifest.3339ac7703275eef61082c1035ee4844.js": "/shop_it_django/precache-manifest.3339ac7703275eef61082c1035ee4844.js",
     "service-worker.js": "/shop_it_django/service-worker.js",
     "static/css/2.0624914a.chunk.css.map": "/shop_it_django/static/css/2.0624914a.chunk.css.map",
-    "static/css/main.8acf0f95.chunk.css.map": "/shop_it_django/static/css/main.8acf0f95.chunk.css.map",
+    "static/css/main.d1765159.chunk.css.map": "/shop_it_django/static/css/main.d1765159.chunk.css.map",
     "static/media/App.css": "/shop_it_django/static/media/strawberry-smoothie-on-glass-jar-775032.97f3446b.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3446a8d1.js",
     "static/css/2.0624914a.chunk.css",
     "static/js/2.4b0518d4.chunk.js",
-    "static/css/main.8acf0f95.chunk.css",
-    "static/js/main.49028898.chunk.js"
+    "static/css/main.d1765159.chunk.css",
+    "static/js/main.fa238e78.chunk.js"
   ]
 }
