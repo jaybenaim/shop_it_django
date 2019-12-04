@@ -25,7 +25,10 @@ class StoreForm extends Component {
       }
     })
       .then(res => {
+        const { refreshStores } = this.props;
+        refreshStores();
         handleShowForm();
+
         console.log(res.statusText);
       })
       .catch(err => {

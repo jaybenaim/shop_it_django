@@ -131,6 +131,7 @@ class Store extends Component {
                   <StoreForm
                     handleShowForm={this.handleShowForm}
                     showForm={showForm}
+                    refreshStores={this.getStores}
                   />
                 )}
               </Col>
