@@ -10,6 +10,7 @@ class Category extends Component {
       this.setState({ name, isLoaded: !isLoaded });
     });
   };
+
   componentDidMount() {
     this.getCategoryName();
   }

@@ -4,7 +4,8 @@ import Api from "../apis/api";
 import Category from "./Category";
 class Aisle extends React.Component {
   state = {
-    categories: []
+    categories: [],
+    showNewCategoryForm: false
   };
   getCategories = () => {
     const { aisle } = this.props;
@@ -22,7 +23,9 @@ class Aisle extends React.Component {
       return <Category key={i} category={category}></Category>;
     });
   };
-
+  handleAddCategory = () => {
+    const { showNewCategoryForm } = this.state;
+  };
   componentDidMount() {
     this.getCategories();
   }
