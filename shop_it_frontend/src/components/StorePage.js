@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { Container, Col, Button, Row, Form, Modal } from "react-bootstrap";
 import StoreProducts from "./StoreProducts";
 import Api from "../apis/api";
-import Aisle from "./aisle";
+import Aisle from "./Aisle";
 
 class StorePage extends Component {
   state = {
     showProducts: false,
     showAisleForm: false,
-    aisles: []
+    aisles: this.props.aisles || []
   };
 
   handleShowProducts = () => {
@@ -17,17 +17,15 @@ class StorePage extends Component {
   };
 
   handleAddAisle = () => {
-    this.handleShowAisleForm();
-  };
-  handleShowAisleForm = () => {
     const { showAisleForm } = this.state;
     this.setState({ showAisleForm: !showAisleForm });
   };
+
   numberRef = React.createRef();
   submitAisleForm = () => {
     let aisleNumber = this.numberRef.current.value;
     Api.post(
-      "aisles/",
+      `aisles/`,
       {
         number: aisleNumber
       },
@@ -37,19 +35,46 @@ class StorePage extends Component {
           Authorization: `Token ${localStorage.token}`
         }
       }
-    ).then(() => {
-      alert("Aisle Added");
+    )
+      .then(() => {
+        this.addAislesToStore();
+      })
+      .catch(err => {
+        alert(err);
+      });
+  };
+
+  addAislesToStore = () => {
+    const aisleNumber = this.numberRef.current.value;
+    const { id, name, address } = this.props;
+    const { aisles } = this.state;
+
+    let data = [];
+    aisles.forEach(aisle => {
+      data.push(aisle);
     });
+    data.push(Number(aisleNumber));
+    console.log(data);
+    Api.put(
+      `stores/${id}/`,
+      { aisles: data, name, address },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.token}`
+        }
+      }
+    )
+      .then(res => {
+        this.getAisles();
+      })
+      .catch(err => {
+        alert(err);
+      });
   };
   getAisles = () => {
-    Api.get("aisles/").then(res => {
-      const aisles = res.data;
-      let aisleNumbers = aisles.map(aisle => {
-        return aisle.number;
-      });
-
-      this.setState({ aisles: aisleNumbers });
-    });
+    const { getStores } = this.props;
+    getStores();
   };
   showAisles = () => {
     const { aisles } = this.state;
@@ -57,9 +82,7 @@ class StorePage extends Component {
       return <Aisle key={i} aisle={aisle}></Aisle>;
     });
   };
-  componentDidMount() {
-    this.getAisles();
-  }
+
   render() {
     const { showProducts, showAisleForm, aisles } = this.state;
     const { handleShowStore, name, address } = this.props;
@@ -116,16 +139,11 @@ class StorePage extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col>
-                  <strong>Aisles</strong>
-                  {aisles && this.showAisles()}
-                </Col>
-                <Col>
-                  <strong>Categories</strong>
-                </Col>
-                <Col>
+                <Col>{aisles && this.showAisles()}</Col>
+
+                {/* <Col>
                   <strong onClick={this.handleShowProducts}>Products</strong>
-                </Col>
+                </Col> */}
               </Row>
               <Row>
                 <Col>
@@ -135,12 +153,6 @@ class StorePage extends Component {
                   >
                     Add Aisle
                   </Button>
-                </Col>
-                <Col>
-                  <Button variant="outline-primary">Add Category</Button>
-                </Col>
-                <Col>
-                  <Button variant="outline-primary">Add Products</Button>
                 </Col>
               </Row>
             </Container>

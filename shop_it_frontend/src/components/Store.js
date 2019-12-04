@@ -54,6 +54,7 @@ class Store extends Component {
             key={i}
             {...store}
             handleShowStore={this.handleShowStore}
+            getStores={this.getStores}
           />
         );
       } else {
