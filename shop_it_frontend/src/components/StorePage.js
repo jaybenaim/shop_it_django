@@ -1,22 +1,83 @@
 import React, { Component } from "react";
-import { Container, Col, Button, Row } from "react-bootstrap";
+import { Container, Col, Button, Row, Form, Modal } from "react-bootstrap";
 import StoreProducts from "./StoreProducts";
+import Api from "../apis/api";
 
 class StorePage extends Component {
   state = {
-    showProducts: false
+    showProducts: false,
+    showAisleForm: false
   };
+
   handleShowProducts = () => {
     const { showProducts } = this.state;
     this.setState({ showProducts: !showProducts });
   };
 
-  render() {
-    const { showProducts } = this.state;
+  handleAddAisle = () => {
+    this.handleShowAisleForm();
+  };
+  handleShowAisleForm = () => {
+    const { showAisleForm } = this.state;
+    this.setState({ showAisleForm: !showAisleForm });
+  };
+  numberRef = React.createRef();
+  submitAisleForm = () => {
+    let aisleNumber = this.numberRef.current.value;
+    Api.post(
+      "aisles/",
+      {
+        number: aisleNumber
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Token ${localStorage.token}`
+        }
+      }
+    ).then(() => {
+      alert("Aisle Added");
+    });
+  };
 
+  render() {
+    const { showProducts, showAisleForm } = this.state;
     const { handleShowStore, name, address } = this.props;
     return (
       <>
+        {showAisleForm && (
+          <Modal.Dialog>
+            <Modal.Header>
+              <Modal.Title>Modal title</Modal.Title>
+            </Modal.Header>
+
+            <Modal.Body>
+              <Form>
+                <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Enter Aisle Number"
+                    ref={this.numberRef}
+                  />
+                </Form.Group>
+
+                <Button variant="primary" type="submit">
+                  Submit
+                </Button>
+              </Form>
+            </Modal.Body>
+
+            <Modal.Footer>
+              <Button variant="secondary" onClick={this.handleShowAisleForm}>
+                Close
+              </Button>
+              <Button variant="primary" onClick={this.submitAisleForm}>
+                Save changes
+              </Button>
+            </Modal.Footer>
+          </Modal.Dialog>
+        )}
         {!showProducts ? (
           <div>
             <Button variant="outline-primary" onClick={() => handleShowStore()}>
@@ -45,9 +106,20 @@ class StorePage extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col>get aisles</Col>
-                <Col>get categories</Col>
-                <Col>get products</Col>
+                <Col>
+                  <Button
+                    variant="outline-primary"
+                    onClick={this.handleAddAisle}
+                  >
+                    Add Aisle
+                  </Button>
+                </Col>
+                <Col>
+                  <Button variant="outline-primary">Add Category</Button>
+                </Col>
+                <Col>
+                  <Button variant="outline-primary">Add Products</Button>
+                </Col>
               </Row>
             </Container>
           </div>
