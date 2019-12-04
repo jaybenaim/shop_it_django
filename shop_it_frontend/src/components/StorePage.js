@@ -2,11 +2,13 @@ import React, { Component } from "react";
 import { Container, Col, Button, Row, Form, Modal } from "react-bootstrap";
 import StoreProducts from "./StoreProducts";
 import Api from "../apis/api";
+import Aisle from "./aisle";
 
 class StorePage extends Component {
   state = {
     showProducts: false,
-    showAisleForm: false
+    showAisleForm: false,
+    aisles: []
   };
 
   handleShowProducts = () => {
@@ -39,10 +41,29 @@ class StorePage extends Component {
       alert("Aisle Added");
     });
   };
+  getAisles = () => {
+    Api.get("aisles/").then(res => {
+      const aisles = res.data;
+      let aisleNumbers = aisles.map(aisle => {
+        return aisle.number;
+      });
 
+      this.setState({ aisles: aisleNumbers });
+    });
+  };
+  showAisles = () => {
+    const { aisles } = this.state;
+    return aisles.map((aisle, i) => {
+      return <Aisle key={i} aisle={aisle}></Aisle>;
+    });
+  };
+  componentDidMount() {
+    this.getAisles();
+  }
   render() {
-    const { showProducts, showAisleForm } = this.state;
+    const { showProducts, showAisleForm, aisles } = this.state;
     const { handleShowStore, name, address } = this.props;
+
     return (
       <>
         {showAisleForm && (
@@ -97,6 +118,7 @@ class StorePage extends Component {
               <Row>
                 <Col>
                   <strong>Aisles</strong>
+                  {aisles && this.showAisles()}
                 </Col>
                 <Col>
                   <strong>Categories</strong>

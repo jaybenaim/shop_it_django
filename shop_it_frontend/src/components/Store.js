@@ -139,7 +139,6 @@ class Store extends Component {
             </Row>
           </>
         ) : (
-          // <div>Hey</div>
           <>{this.selectedStore()}</>
         )}
       </Container>
