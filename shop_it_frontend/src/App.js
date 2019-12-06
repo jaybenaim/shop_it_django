@@ -10,23 +10,38 @@ import SearchPage from "./components/SearchPage";
 import Test from "./components/test";
 
 class App extends Component {
+  state = {
+    showNavbar: false
+      ? "navbar collapse collapse"
+      : "navbar collapse collapse show"
+  };
+  toggleNavbar = () => {
+    const { showNavbar } = this.state;
+    this.setState({ showNavbar: !showNavbar });
+  };
   render() {
+    const { showNavbar } = this.state;
     return (
       <Container fluid={true} className="App container-fluid">
         <Router>
           <br />
-          <Navbar collapseOnSelect expand="md" bg="dark" variant="dark">
+          <Navbar expand="md" bg="dark" variant="dark">
             <Nav.Item>
               <Link to="/shop_it_django">
                 <Navbar.Brand href="/">Shop It</Navbar.Brand>
               </Link>
             </Nav.Item>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-            <Navbar.Collapse id="responsive-navbar-nav">
+            <Navbar.Collapse id="responsive-navbar-nav" className={showNavbar}>
               <Nav className="mr-auto collapse-links" bg="dark" variant="dark">
-                <Nav.Link className="nav-link" to="/shopping_list">
+                <Link
+                  className="nav-link"
+                  to="/shopping_list"
+                  onClick={() => this.toggleNavbar()}
+                >
                   Shopping List
-                </Nav.Link>
+                </Link>
+
                 <Link className="nav-link" to="/stores">
                   Stores
                 </Link>
