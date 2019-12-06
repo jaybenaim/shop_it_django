@@ -36,26 +36,26 @@ class StorePage extends Component {
         }
       }
     )
-      .then(() => {
-        this.addAislesToStore();
+      .then(res => {
+        const { id } = res.data;
+        this.addAislesToStore(id);
       })
       .catch(err => {
         alert(err);
       });
   };
 
-  addAislesToStore = () => {
+  addAislesToStore = aisleId => {
     const aisleNumber = this.numberRef.current.value;
     const { id, name, address } = this.props;
     const { aisles } = this.state;
 
-    let data = [];
-    aisles.forEach(aisle => {
-      data.push(aisle);
+    let data = aisles.map(aisle => {
+      return aisle;
     });
-    data.push(Number(aisleNumber));
+    data.push(Number(aisleId));
     console.log(data);
-    Api.put(
+    Api.patch(
       `stores/${id}/`,
       { aisles: data, name, address },
       {
@@ -73,16 +73,21 @@ class StorePage extends Component {
       });
   };
   getAisles = () => {
-    const { getStores } = this.props;
+    const { getStores, handleShowStore } = this.props;
     getStores();
+    this.showAisles();
   };
   showAisles = () => {
     const { aisles } = this.state;
+    const { getStores } = this.props;
+    console.log(aisles); // get right aisles
     return aisles.map((aisle, i) => {
-      return <Aisle key={i} aisle={aisle}></Aisle>;
+      return <Aisle key={i} aisle={aisle} getStores={getStores}></Aisle>;
     });
   };
-
+  componentDidUpdate() {
+    this.showAisles();
+  }
   render() {
     const { showProducts, showAisleForm, aisles } = this.state;
     const { handleShowStore, name, address } = this.props;
@@ -92,23 +97,19 @@ class StorePage extends Component {
         {showAisleForm && (
           <Modal.Dialog>
             <Modal.Header>
-              <Modal.Title>Modal title</Modal.Title>
+              <Modal.Title>Add an Aisle</Modal.Title>
             </Modal.Header>
 
             <Modal.Body>
               <Form>
                 <Form.Group controlId="formBasicEmail">
-                  <Form.Label>Email address</Form.Label>
+                  <Form.Label>Aisle Number</Form.Label>
                   <Form.Control
                     type="email"
                     placeholder="Enter Aisle Number"
                     ref={this.numberRef}
                   />
                 </Form.Group>
-
-                <Button variant="primary" type="submit">
-                  Submit
-                </Button>
               </Form>
             </Modal.Body>
 
@@ -127,6 +128,7 @@ class StorePage extends Component {
             <Button variant="outline-primary" onClick={() => handleShowStore()}>
               Back
             </Button>
+
             <Container className="store-page-container">
               <Row>
                 <Col>
@@ -139,13 +141,6 @@ class StorePage extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col>{aisles && this.showAisles()}</Col>
-
-                {/* <Col>
-                  <strong onClick={this.handleShowProducts}>Products</strong>
-                </Col> */}
-              </Row>
-              <Row>
                 <Col>
                   <Button
                     variant="outline-primary"
@@ -154,6 +149,13 @@ class StorePage extends Component {
                     Add Aisle
                   </Button>
                 </Col>
+              </Row>
+              <Row>
+                <Col>{aisles && this.showAisles()}</Col>
+
+                {/* <Col>
+                  <strong onClick={this.handleShowProducts}>Products</strong>
+                </Col> */}
               </Row>
             </Container>
           </div>

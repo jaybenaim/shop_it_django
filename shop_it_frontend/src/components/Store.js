@@ -16,7 +16,6 @@ class Store extends Component {
 
   getStores = () => {
     Api.get("stores/").then(res => {
-      console.log(res.data);
       let stores = res.data;
       let usersStores = stores.filter(store => {
         if (Number(store.user) === Number(localStorage.id)) {

@@ -26,6 +26,19 @@ class Aisle extends React.Component {
   handleAddCategory = () => {
     const { showNewCategoryForm } = this.state;
   };
+  destroyAisle = () => {
+    const { aisle } = this.props;
+
+    Api.delete(`aisles/${aisle}/`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${localStorage.token}`
+      }
+    }).then(res => {
+      const { getStores } = this.props;
+      getStores();
+    });
+  };
   componentDidMount() {
     this.getCategories();
   }
@@ -42,6 +55,12 @@ class Aisle extends React.Component {
               onClick={this.handleAddCategory()}
             >
               Add Category
+            </Button>
+            <Button
+              variant="outline-danger"
+              onClick={() => this.destroyAisle()}
+            >
+              X
             </Button>
           </div>
         </Col>

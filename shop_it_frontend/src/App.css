@@ -313,14 +313,14 @@ h1 {
 .hide {
   display: none;
 }
-.show {
+/* .show {
   display: flex;
   justify-content: center;
   background: #eee;
   box-shadow: 2px 5px 24px -6px rgba(0, 0, 0, 0.75);
   margin-top: 40px;
   padding: 20px;
-}
+} */
 .search-form {
   display: flex;
   justify-content: center;
@@ -586,4 +586,12 @@ h1 {
     margin: 10px;
   }
   /* End Aisles */
+  /* NavBar */
+  .logout-button {
+    margin-left: 20px;
+  }
+  .responsive-navbar-nav {
+    background: red;
+  }
+  /*  End Navbar */
 }
