@@ -42,10 +42,18 @@ class App extends Component {
                   Shopping List
                 </Link>
 
-                <Link className="nav-link" to="/stores">
+                <Link
+                  className="nav-link"
+                  to="/stores"
+                  onClick={() => this.toggleNavbar()}
+                >
                   Stores
                 </Link>
-                <Link className="nav-link" to="/search">
+                <Link
+                  className="nav-link"
+                  to="/search"
+                  onClick={() => this.toggleNavbar()}
+                >
                   Suggestions
                 </Link>
               </Nav>
