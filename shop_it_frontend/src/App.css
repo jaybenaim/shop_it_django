@@ -321,6 +321,15 @@ h1 {
   margin-top: 40px;
   padding: 20px;
 } */
+.show-suggestion {
+  display: flex;
+  justify-content: center;
+  background: #eee;
+  box-shadow: 2px 5px 24px -6px rgba(0, 0, 0, 0.75);
+  margin-top: 40px;
+  padding: 20px;
+}
+
 .search-form {
   display: flex;
   justify-content: center;
@@ -589,6 +598,9 @@ h1 {
   /* NavBar */
   .logout-button {
     margin-left: 20px;
+  }
+  .login-username {
+    margin-top: -20px;
   }
   .responsive-navbar-nav {
     background: red;

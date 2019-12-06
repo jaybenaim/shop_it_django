@@ -69,7 +69,11 @@ class SearchPage extends React.Component {
     let suggestionElements = ingredients.map((suggestion, i) => {
       if (ingredients !== null) {
         return (
-          <RandomIngredient key={i} showClass="show" suggestion={suggestion} />
+          <RandomIngredient
+            key={i}
+            showClass="show-suggestion"
+            suggestion={suggestion}
+          />
         );
       }
     });
@@ -81,7 +85,11 @@ class SearchPage extends React.Component {
       while (i < 20) {
         if (suggestions !== null) {
           return (
-            <Suggestions key={i} showClass="show" suggestion={suggestion} />
+            <Suggestions
+              key={i}
+              showClass="show-suggestion"
+              suggestion={suggestion}
+            />
           );
         } else {
           this.displayForm("error");
