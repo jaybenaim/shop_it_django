@@ -27,12 +27,12 @@ class ShoppingListForm extends Component {
       handleShowShoppingListForm();
       getShoppingLists();
       console.log(res.statusText);
+      this.goBack(true);
     });
   };
-  goBack = () => {
+  goBack = showForm => {
     const { handleShowShoppingListForm, getShoppingLists } = this.props;
-
-    handleShowShoppingListForm();
+    !showForm && handleShowShoppingListForm();
     getShoppingLists();
   };
 
