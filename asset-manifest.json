@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/shop_it_django/static/css/main.0c821f99.chunk.css",
-    "main.js": "/shop_it_django/static/js/main.98f21a3f.chunk.js",
-    "main.js.map": "/shop_it_django/static/js/main.98f21a3f.chunk.js.map",
+    "main.js": "/shop_it_django/static/js/main.5a05e6b0.chunk.js",
+    "main.js.map": "/shop_it_django/static/js/main.5a05e6b0.chunk.js.map",
     "runtime-main.js": "/shop_it_django/static/js/runtime-main.3446a8d1.js",
     "runtime-main.js.map": "/shop_it_django/static/js/runtime-main.3446a8d1.js.map",
     "static/css/2.0624914a.chunk.css": "/shop_it_django/static/css/2.0624914a.chunk.css",
     "static/js/2.4b0518d4.chunk.js": "/shop_it_django/static/js/2.4b0518d4.chunk.js",
     "static/js/2.4b0518d4.chunk.js.map": "/shop_it_django/static/js/2.4b0518d4.chunk.js.map",
     "index.html": "/shop_it_django/index.html",
-    "precache-manifest.7b7ff38e2eac70be268fc6c61b0494ed.js": "/shop_it_django/precache-manifest.7b7ff38e2eac70be268fc6c61b0494ed.js",
+    "precache-manifest.6234e5b69e3abe469f8527e994d6b51b.js": "/shop_it_django/precache-manifest.6234e5b69e3abe469f8527e994d6b51b.js",
     "service-worker.js": "/shop_it_django/service-worker.js",
     "static/css/2.0624914a.chunk.css.map": "/shop_it_django/static/css/2.0624914a.chunk.css.map",
     "static/css/main.0c821f99.chunk.css.map": "/shop_it_django/static/css/main.0c821f99.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.0624914a.chunk.css",
     "static/js/2.4b0518d4.chunk.js",
     "static/css/main.0c821f99.chunk.css",
-    "static/js/main.98f21a3f.chunk.js"
+    "static/js/main.5a05e6b0.chunk.js"
   ]
 }
