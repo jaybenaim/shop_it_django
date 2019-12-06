@@ -593,5 +593,8 @@ h1 {
   .responsive-navbar-nav {
     background: red;
   }
+  .collapse-links a {
+    margin-left: 30px;
+  }
   /*  End Navbar */
 }
